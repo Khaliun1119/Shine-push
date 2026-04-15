@@ -1,40 +1,92 @@
-# Python
-<<<<<<< HEAD
+# ═══ Python ═══
 __pycache__/
-*.pyc
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+*.egg
+.eggs/
+pip-log.txt
+pip-delete-this-directory.txt
 
-# Virtual env
+# Testing / Coverage
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+coverage.xml
+*.cover
+
+# Jupyter
+.ipynb_checkpoints/
+
+# ═══ Virtual environments ═══
 venv/
+.venv/
 env/
+ENV/
 backend/venv/
+clothing-color-advisor/backend/venv/
 
-# Git
-.git/
-
-# IDE
-=======
-venv/
-__pycache__/
-*.pyc
-
-# Env
+# ═══ Secrets & env ═══
 .env
+.env.local
+.env.*.local
+*.pem
+*.key
+secrets.json
+credentials.json
 
-# Node
+# ═══ Node / Frontend ═══
 node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+.parcel-cache/
+.next/
+.nuxt/
+.cache/
+.DS_Store
 
-# VS / IDE
->>>>>>> bba9569880bc7900da31cf63c90c8a557048a6d5
+# ═══ IDE / Editors ═══
 .vscode/
 .idea/
+*.swp
+*.swo
+*.swn
+*.sublime-project
+*.sublime-workspace
+.project
+.settings/
 
-# OS
+# ═══ OS ═══
 .DS_Store
-<<<<<<< HEAD
 Thumbs.db
-=======
-Thumbs.db
+Desktop.ini
+ehthumbs.db
+$RECYCLE.BIN/
 
-# Logs
+# ═══ Logs & temp ═══
 *.log
->>>>>>> bba9569880bc7900da31cf63c90c8a557048a6d5
+logs/
+*.tmp
+*.bak
+*.orig
+*~
+
+# ═══ Claude Code / AI tooling ═══
+.claude/
+memory/
+CLAUDE.local.md
+
+# ═══ Project-specific ═══
+# Uploaded test images (keep dataset.csv + ml_model.joblib which are tracked)
+clothing-color-advisor/tests/uploads/
+*.tmp.jpg
+*.tmp.png
