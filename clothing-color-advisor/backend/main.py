@@ -20,11 +20,10 @@ from contextlib import asynccontextmanager
 import cv2
 import numpy as np
 from PIL import Image
-from fastapi import FastAPI, File, UploadFile, HTTPException, Request
+from fastapi import FastAPI, File, UploadFile, HTTPException
 from fastapi.staticfiles import StaticFiles
-from fastapi.responses import JSONResponse
+from fastapi.responses import FileResponse, JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.templating import Jinja2Templates
 
 from analyzer import FaceDetector, SkinClassifier, ColorRecommender, MLSkinClassifier
 
@@ -290,8 +289,6 @@ async def health_check():
     return {"status": "healthy", "version": "1.0.0"}
 
 
-templates = Jinja2Templates(directory="../frontend/templates")
-
 # Serve frontend static files (no-cache for development)
 app.mount("/static", StaticFiles(directory="../frontend/static"), name="static")
 
@@ -307,5 +304,5 @@ async def no_cache_middleware(request, call_next):
 
 
 @app.get("/")
-async def serve_frontend(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request})
+async def serve_frontend():
+    return FileResponse("../frontend/index.html")

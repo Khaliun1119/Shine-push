@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChromaSense AI | Хувцасны өнгө зөвлөгч</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <link rel="stylesheet" href="/static/css/style.css?v=18">
+</head>
+<body>
+
+    <!-- ═══ NAVBAR ═══ -->
+    <nav class="navbar">
+        <div class="nav-brand">
+            <span class="brand-text">Chroma<span class="brand-ai">Sense</span></span>
+        </div>
+        <div class="nav-links">
+            <a href="#how-it-works" data-i18n="nav.how">Хэрхэн ажилладаг</a>
+            <a href="#analyze" class="nav-cta" data-i18n="nav.analyze">Шинжилгээ</a>
+            <button class="lang-toggle" id="langToggle" title="Switch language">
+                <span class="lang-opt active" data-lang="mn">MN</span>
+                <span class="lang-sep">|</span>
+                <span class="lang-opt" data-lang="en">EN</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ═══ HERO ═══ -->
+    <section class="hero">
+
+        <!-- Full-bleed editorial photo -->
+        <div class="hero-photo-wrap">
+            <img
+                src="https://i.pinimg.com/1200x/16/8b/0e/168b0ea2e65be2748ec70cc34cde23ef.jpg"
+                alt="ChromaSense AI" class="hero-woman-img"
+                loading="eager"
+            >
+        </div>
+
+        <!-- Cinematic gradient overlay -->
+        <div class="hero-overlay"></div>
+
+        <!-- Editorial text — overlaid on left -->
+        <div class="hero-content">
+            <div class="hero-eyebrow">
+                <svg width="7" height="7" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="currentColor"/></svg>
+             
+            </div>
+            <h1 class="hero-title">
+                <span data-i18n="hero.title1">Өөрт тохирох</span><br>
+                <span class="hero-title-line2 gradient-text" data-i18n="hero.title2">өнгөө олоорой</span>
+            </h1>
+            <p class="hero-subtitle" data-i18n="hero.sub">Хиймэл оюун ухаанд суурилсан арьсны өнгөний шинжилгээ — танд хамгийн сайн зохицох хувцасны өнгийг тодорхойлно.</p>
+            <div class="hero-actions">
+                <a href="#analyze" class="hero-btn">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                    <span data-i18n="hero.btn">Шинжилгээ эхлүүлэх</span>
+                </a>
+            </div>
+            <div class="hero-trust">
+                <div class="trust-item"><span class="trust-check">✦</span><span data-i18n="trust.1">89% нарийвчлал</span></div>
+                <div class="trust-item"><span class="trust-check">✦</span><span data-i18n="trust.2">12 өнгийн улирал</span></div>
+                <div class="trust-item"><span class="trust-check">✦</span><span data-i18n="trust.3">Үнэгүй шинжилгээ</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ STATS STRIP ═══ -->
+    <div class="stats-strip">
+        <div class="stat-item">
+            <span class="stat-num">12</span>
+            <span class="stat-label" data-i18n="stats.seasons">Өнгийн улирал</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+            <span class="stat-num">42</span>
+            <span class="stat-label" data-i18n="stats.features">Онцлог шинж</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+            <span class="stat-num">4,967</span>
+            <span class="stat-label" data-i18n="stats.images">Сургалтын зураг</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+            <span class="stat-num">3</span>
+            <span class="stat-label" data-i18n="stats.colors">Өнгийн мэдээлэл</span>
+        </div>
+    </div>
+
+ <section class="seasons-modern-section">
+    <div class="seasons-grid-container">
+        
+        <div class="season-box" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.7)), url('https://i.pinimg.com/736x/ff/d5/43/ffd543e7a28ad64602022a796db9c29b.jpg');">
+            <div class="season-content">
+                <div class="season-top">
+                    <span class="season-emoji">🌸</span>
+                    <h3>Хавар <span>Spring</span></h3>
+                </div>
+                <p class="season-text">Дулаан, тод, хөнгөн өнгүүд.</p>
+                <div class="palette-dots">
+                    <span style="background:#F9C7A1"></span>
+                    <span style="background:#F4875E"></span>
+                    <span style="background:#F2C94C"></span>
+                    <span style="background:#A8D5A2"></span>
+                    <span style="background:#FAE5D3"></span>
+                </div>
+                <div class="sub-tags">
+                    <span>Light Spring</span>
+                    <span>Warm Spring</span>
+                    <span>Clear Spring</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="season-box" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.7)), url('https://i.pinimg.com/736x/8b/3b/93/8b3b93cf7255bd5aa73b1410ad135f6f.jpg');">
+            <div class="season-content">
+                <div class="season-top">
+                    <span class="season-emoji">☀️</span>
+                    <h3>Зун <span>Summer</span></h3>
+                </div>
+                <p class="season-text">Сэрүүн, зөөлөн өнгүүд.</p>
+                <div class="palette-dots">
+                    <span style="background:#B8D4E8"></span>
+                    <span style="background:#9BB8D4"></span>
+                    <span style="background:#D4B8D4"></span>
+                    <span style="background:#E8D4E8"></span>
+                    <span style="background:#C4D4D4"></span>
+                </div>
+                <div class="sub-tags">
+                    <span>Light Summer</span>
+                    <span>Cool Summer</span>
+                    <span>Soft Summer</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="season-box" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.7)), url('https://i.pinimg.com/1200x/c0/21/80/c021803bb4a3725b4190cf724e888799.jpg');">
+            <div class="season-content">
+                <div class="season-top">
+                    <span class="season-emoji">🍂</span>
+                    <h3>Намар <span>Autumn</span></h3>
+                </div>
+                <p class="season-text">Дулаан, баялаг өнгүүд.</p>
+                <div class="palette-dots">
+                    <span style="background:#C4854A"></span>
+                    <span style="background:#8B4513"></span>
+                    <span style="background:#D4A056"></span>
+                    <span style="background:#7A6240"></span>
+                    <span style="background:#B87333"></span>
+                </div>
+                <div class="sub-tags">
+                    <span>Soft Autumn</span>
+                    <span>Warm Autumn</span>
+                    <span>Deep Autumn</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="season-box" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.7)), url('https://i.pinimg.com/736x/54/58/e4/5458e449da1d303991c63ed3edbf0a8c.jpg');">
+            <div class="season-content">
+                <div class="season-top">
+                    <span class="season-emoji">❄️</span>
+                    <h3>Өвөл <span>Winter</span></h3>
+                </div>
+                <p class="season-text">Хурц, тод, сэрүүн өнгүүд.</p>
+                <div class="palette-dots">
+                    <span style="background:#1A1A2E"></span>
+                    <span style="background:#FFFFFF"></span>
+                    <span style="background:#C8102E"></span>
+                    <span style="background:#1B4F72"></span>
+                    <span style="background:#6C3483"></span>
+                </div>
+                <div class="sub-tags">
+                    <span>Cool Winter</span>
+                    <span>Clear Winter</span>
+                    <span>Deep Winter</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+    <section id="how-it-works" class="new-how-section">
+    <div class="how-container">
+        <div class="how-visual-side">
+            <div class="phone-mockup">
+                <img src="https://i.pinimg.com/control1/1200x/ed/ef/25/edef253adc1dcb0bcba22e4eb5ccd22d.jpg" alt="AI Face Scan">
+                <div class="scan-line"></div> </div>
+        </div>
+
+        <div class="how-text-side">
+            <div class="section-eyebrow">Энгийн 3 алхам</div>
+            <h2 class="section-title">Гэрэлтэх гурван алхам</h2>
+            
+            <div class="step-list">
+                <div class="new-step-item">
+                    <span class="step-number">01</span>
+                    <div class="step-info">
+                        <h3>Эхний алхам</h3>
+                        <p>Байгалийн гэрэлд авсан царайны тод зургийг оруулна уу. Энэ нь AI-д хамгийн зөв дүн шинжилгээ хийхэд тусална.</p>
+                    </div>
+                </div>
+
+                <div class="new-step-item">
+                    <span class="step-number">02</span>
+                    <div class="step-info">
+                        <h3>Дараагийн алхам</h3>
+                        <p>Манай MediaPipe болон CIE LAB технологиуд таны арьс, үс, нүдний өнгөний нарийвчилсан кодыг тайлна.</p>
+                    </div>
+                </div>
+
+                <div class="new-step-item">
+                    <span class="step-number">03</span>
+                    <div class="step-info">
+                        <h3>Сүүлийн алхам</h3>
+                        <p>Танд хамгийн сайн зохицох хувцас, гоо сайхны палитр болон загварын зөвлөмжийг хүлээн авна.</p>
+                    </div>
+                </div>
+            </div>
+
+            <button class="begin-analysis-btn">Шинжилгээг эхлүүлэх</button>
+        </div>
+    </div>
+</section>
+
+    <!-- ═══ ANALYZE ═══ -->
+    <section id="analyze" class="analyze-section">
+        <h2 class="section-title" data-i18n="analyze.title">Өнгийн шинжилгээ</h2>
+        <div class="analyze-container">
+            <div class="upload-area" id="uploadArea">
+                <div class="upload-methods">
+                    <div class="upload-card" id="fileUploadCard">
+                        <div class="upload-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+                                <polyline points="17 8 12 3 7 8"/>
+                                <line x1="12" y1="3" x2="12" y2="15"/>
+                            </svg>
+                        </div>
+                        <h3 data-i18n="upload.title">Зураг оруулах</h3>
+                        <p data-i18n="upload.sub">Чирж оруулах эсвэл дарж сонгох</p>
+                        <p class="upload-hint" data-i18n="upload.hint">JPEG · PNG · WebP</p>
+                        <input type="file" id="fileInput" accept="image/jpeg,image/png,image/webp" hidden>
+                    </div>
+                    <div class="upload-divider"><span data-i18n="or">эсвэл</span></div>
+                    <div class="upload-card" id="cameraCard">
+                        <div class="upload-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/>
+                                <circle cx="12" cy="13" r="4"/>
+                            </svg>
+                        </div>
+                        <h3 data-i18n="camera.title">Камер ашиглах</h3>
+                        <p data-i18n="camera.sub">Вэбкамераар зураг авах</p>
+                        <p class="upload-hint" data-i18n="camera.hint">Сайн гэрэлтэй байдлыг хангаарай</p>
+                    </div>
+                </div>
+                <div class="preview-container" id="previewContainer" style="display:none;">
+                    <img id="previewImage" alt="Preview">
+                    <div class="preview-actions">
+                        <button class="btn btn-secondary" id="clearBtn" data-i18n="btn.clear">Зураг солих</button>
+                        <button class="btn btn-primary" id="analyzeBtn" data-i18n="btn.analyze">Шинжлэх</button>
+                    </div>
+                </div>
+                <div class="camera-container" id="cameraContainer" style="display:none;">
+                    <video id="cameraVideo" autoplay playsinline></video>
+                    <canvas id="cameraCanvas" style="display:none;"></canvas>
+                    <div class="camera-actions">
+                        <button class="btn btn-secondary" id="closeCameraBtn" data-i18n="btn.close.camera">Болих</button>
+                        <button class="btn btn-primary" id="captureBtn" data-i18n="btn.capture">Зураг авах</button>
+                    </div>
+                </div>
+            </div>
+            <div class="loading-container" id="loadingContainer" style="display:none;">
+                <div class="loading-spinner">
+                    <div class="spinner-ring"></div>
+                    <div class="spinner-ring"></div>
+                    <div class="spinner-ring"></div>
+                </div>
+                <h3 data-i18n="loading.title">Арьсны өнгийг шинжилж байна...</h3>
+                <p class="loading-step" id="loadingStep" data-i18n="loading.step">Царай илрүүлж байна...</p>
+            </div>
+            <div class="error-container" id="errorContainer" style="display:none;">
+                <div class="error-icon">!</div>
+                <h3 id="errorTitle" data-i18n="error.title">Шинжилгээ амжилтгүй болов</h3>
+                <p id="errorMessage"></p>
+                <button class="btn btn-primary" id="retryBtn" data-i18n="btn.retry">Дахин оролдох</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ RESULTS ═══ -->
+    <section id="results" class="results-section" style="display:none;">
+        <span class="results-eyebrow" data-i18n="results.eyebrow">Таны өнгийн шинжилгээ</span>
+        <h2 class="section-title results-title-editorial" data-i18n="results.title">Таны хувийн өнгө</h2>
+        <div class="results-divider"></div>
+
+        <!-- Color Profile + Season (2-col) -->
+        <div class="results-grid">
+
+            <!-- Profile Card -->
+            <div class="result-card profile-card">
+                <div class="card-header">
+                    <h3 data-i18n="profile.title">Гарсан үр дүн</h3>
+                </div>
+
+                <!-- Analyzed photo -->
+                <div class="analyzed-photo-wrap" id="analyzedPhotoWrap" style="display:none;">
+                    <img id="analyzedPhoto" class="analyzed-photo" alt="">
+                    <div class="photo-scan-line"></div>
+                    <div class="photo-corner tl"></div>
+                    <div class="photo-corner tr"></div>
+                    <div class="photo-corner bl"></div>
+                    <div class="photo-corner br"></div>
+                </div>
+
+                <!-- Biometric trio -->
+                <div class="biometric-trio">
+
+                    <!-- Skin -->
+                    <div class="biometric-item">
+                        <div class="bm-visual">
+                            <div class="color-orb" id="skinOrb">
+                                <!-- Clean minimal bust silhouette -->
+                                <svg class="orb-icon" viewBox="0 0 48 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <!-- Shoulders -->
+                                    <path d="M2,52 Q4,40 12,36 Q17,34 24,34 Q31,34 36,36 Q44,40 46,52Z" fill="rgba(255,255,255,0.45)"/>
+                                    <!-- Neck -->
+                                    <rect x="20" y="28" width="8" height="9" rx="2" fill="rgba(255,255,255,0.5)"/>
+                                    <!-- Face oval — clean -->
+                                    <ellipse cx="24" cy="19" rx="10" ry="12" fill="rgba(255,255,255,0.55)"/>
+                                    <!-- Surface highlight -->
+                                    <ellipse cx="19" cy="13" rx="4.5" ry="2.5" fill="rgba(255,255,255,0.25)" transform="rotate(-25 19 13)"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="bm-info">
+                            <div class="bm-color-name" id="skinColorName"></div>
+                            <div class="bm-hex" id="skinHex">#D08B5B</div>
+                            <div class="bm-label" data-i18n="skin.label">Арьсны өнгө</div>
+                        </div>
+                    </div>
+
+                    <!-- Hair -->
+                    <div class="biometric-item">
+                        <div class="bm-visual">
+                            <div class="color-orb" id="hairOrb">
+                                <!-- Clean minimal hair silhouette -->
+                                <svg class="orb-icon" viewBox="0 0 48 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <!-- Hair mass -->
+                                    <path d="M14,20 Q13,6 24,4 Q35,6 34,20" fill="rgba(255,255,255,0.65)"/>
+                                    <!-- Head -->
+                                    <ellipse cx="24" cy="22" rx="9" ry="10.5" fill="rgba(255,255,255,0.35)"/>
+                                    <!-- Left flowing strand -->
+                                    <path d="M15,20 Q9,30 10,46" stroke="rgba(255,255,255,0.7)" stroke-width="4" stroke-linecap="round" fill="none"/>
+                                    <path d="M16,21 Q12,33 14,47" stroke="rgba(255,255,255,0.35)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                                    <!-- Right flowing strand -->
+                                    <path d="M33,20 Q39,30 38,46" stroke="rgba(255,255,255,0.7)" stroke-width="4" stroke-linecap="round" fill="none"/>
+                                    <path d="M32,21 Q36,33 34,47" stroke="rgba(255,255,255,0.35)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                                    <!-- Shine -->
+                                    <ellipse cx="17" cy="10" rx="4" ry="2" fill="rgba(255,255,255,0.3)" transform="rotate(25 17 10)"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="bm-info">
+                            <div class="bm-color-name" id="hairColorName"></div>
+                            <div class="bm-hex" id="hairHex">#3B1A0E</div>
+                            <div class="bm-label" data-i18n="hair.label">Үсний өнгө</div>
+                        </div>
+                    </div>
+
+                    <!-- Eye -->
+                    <div class="biometric-item">
+                        <div class="bm-visual">
+                            <div class="color-orb eye-orb" id="eyeOrb">
+                                <svg class="eye-orb-svg" viewBox="0 0 82 82" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <ellipse cx="41" cy="43" rx="28" ry="16" fill="rgba(0,0,0,0.07)"/>
+                                    <path d="M13,41 Q27,22 41,22 Q55,22 69,41 Q55,60 41,60 Q27,60 13,41Z" fill="white"/>
+                                    <circle cx="41" cy="41" r="14" id="eyeIrisSvg" fill="#6B4226"/>
+                                    <circle cx="41" cy="41" r="14" fill="none" stroke="rgba(0,0,0,0.12)" stroke-width="1.5"/>
+                                    <circle cx="41" cy="41" r="10" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+                                    <circle cx="41" cy="41" r="7" fill="#0a0808"/>
+                                    <circle cx="47" cy="34" r="4.5" fill="rgba(255,255,255,0.75)"/>
+                                    <circle cx="45" cy="38" r="1.8" fill="rgba(255,255,255,0.35)"/>
+                                    <path d="M13,41 Q27,22 41,22 Q55,22 69,41" stroke="#1a0a0a" stroke-width="2.8" stroke-linecap="round" fill="none"/>
+                                    <path d="M15,39 L11,33" stroke="#1a0a0a" stroke-width="1.6" stroke-linecap="round"/>
+                                    <path d="M20,31 L17,24" stroke="#1a0a0a" stroke-width="1.6" stroke-linecap="round"/>
+                                    <path d="M28,24 L26,17" stroke="#1a0a0a" stroke-width="1.6" stroke-linecap="round"/>
+                                    <path d="M36,22 L35,15" stroke="#1a0a0a" stroke-width="1.6" stroke-linecap="round"/>
+                                    <path d="M41,22 L41,14" stroke="#1a0a0a" stroke-width="1.8" stroke-linecap="round"/>
+                                    <path d="M46,22 L47,15" stroke="#1a0a0a" stroke-width="1.6" stroke-linecap="round"/>
+                                    <path d="M54,24 L56,17" stroke="#1a0a0a" stroke-width="1.6" stroke-linecap="round"/>
+                                    <path d="M62,31 L65,24" stroke="#1a0a0a" stroke-width="1.6" stroke-linecap="round"/>
+                                    <path d="M67,39 L71,33" stroke="#1a0a0a" stroke-width="1.6" stroke-linecap="round"/>
+                                    <path d="M15,43 Q27,57 41,58 Q55,57 67,43" stroke="rgba(26,10,10,0.35)" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="bm-info">
+                            <div class="bm-color-name" id="eyeColorName"></div>
+                            <div class="bm-hex" id="eyeHex">#6B4226</div>
+                            <div class="bm-label" data-i18n="eye.label">Нүдний өнгө</div>
+                        </div>
+                    </div>
+
+                </div><!-- /biometric-trio -->
+
+                <div class="profile-details">
+                    <div class="detail-row">
+                        <span class="detail-label" data-i18n="detail.tone">Өнгийн нэр</span>
+                        <span class="detail-value" id="toneName"></span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label" data-i18n="detail.fitz">Fitzpatrick</span>
+                        <span class="detail-value" id="fitzpatrickType"></span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label" data-i18n="detail.under">Дотоод өнгө</span>
+                        <span class="detail-value" id="undertoneType"></span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label" data-i18n="detail.ita">ITA өнцөг</span>
+                        <span class="detail-value" id="itaAngle"></span>
+                    </div>
+                </div>
+                <p class="tone-description" id="toneDescription"></p>
+                <p class="undertone-description" id="undertoneDescription"></p>
+
+                <!-- Why this color works — Undertone + Contrast explanation -->
+                <div class="why-color-section" id="whyColorSection" style="display:none;">
+                    <div class="why-color-title">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+                        Яагаад эдгээр өнгүүд таны дүр төрхтэй зохицох вэ
+                    </div>
+                    <p class="why-color-text" id="whyColorText"></p>
+                </div>
+
+                <!-- Floating detail chips -->
+                <div class="float-chips-wrap" id="floatChipsWrap"></div>
+            </div>
+
+            <!-- Season Card -->
+            <div class="result-card season-card">
+                <div class="card-header">
+                    <h3 data-i18n="season.title">Таны өнгийн улирал</h3>
+                </div>
+                <div class="season-content">
+                    <div class="season-hero-badge" id="seasonBadge">
+                        <span class="season-emoji" id="seasonEmoji"></span>
+                        <div class="season-text-block">
+                            <span class="season-name" id="seasonName"></span>
+                            <span class="season-en-name" id="seasonEnName"></span>
+                        </div>
+                    </div>
+                    <div class="season-palette-row" id="seasonPalette"></div>
+                    <p class="season-description" id="seasonDescription"></p>
+                    <p class="season-characteristics" id="seasonCharacteristics"></p>
+                    <div class="ml-confidence" id="mlConfidence" style="display:none;">
+                        <h4 data-i18n="ml.title">ML загварын итгэлцэл</h4>
+                        <div class="confidence-bars" id="confidenceBars"></div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /results-grid -->
+
+        <!-- Clothing -->
+        <div class="result-card clothing-card">
+            <div class="card-header">
+                <h3 data-i18n="clothes.title">Хувцасны төрлөөр</h3>
+                <div class="palette-tabs" id="clothingTabs">
+                    <button class="tab active" data-tab="tops" data-i18n="tab.tops">Цамц</button>
+                    <button class="tab" data-tab="bottoms" data-i18n="tab.bottoms">Өмд</button>
+                    <button class="tab" data-tab="dresses" data-i18n="tab.dresses">Даашинз</button>
+                    <button class="tab" data-tab="outerwear" data-i18n="tab.outerwear">Гадуур хувцас</button>
+                    <button class="tab" data-tab="shoes" data-i18n="tab.shoes">Гутал</button>
+                    <button class="tab" data-tab="accessories" data-i18n="tab.accessories">Гоёл чимэглэл</button>
+                </div>
+            </div>
+            <div class="color-grid" id="clothingGrid"></div>
+        </div>
+
+        <!-- Avoid -->
+        <div class="result-card avoid-card">
+            <div class="card-header">
+                <h3 data-i18n="avoid.title">Зайлсхийх өнгүүд</h3>
+            </div>
+            <div class="avoid-grid" id="avoidGrid"></div>
+        </div>
+
+        <!-- Outfits -->
+        <div class="result-card outfits-card">
+            <div class="card-header">
+                <h3 data-i18n="outfits.title">Хувцасны хослолууд</h3>
+                <div class="palette-tabs" id="outfitTabs">
+                    <button class="tab active" data-tab="all" data-i18n="tab.all">Бүгд</button>
+                    <button class="tab" data-tab="casual" data-i18n="tab.casual">Өдөр тутам</button>
+                    <button class="tab" data-tab="business" data-i18n="tab.business">Ажлын</button>
+                    <button class="tab" data-tab="evening" data-i18n="tab.evening">Оройн</button>
+                    <button class="tab" data-tab="formal" data-i18n="tab.formal">Ёслолын</button>
+                </div>
+            </div>
+            <div class="outfits-grid" id="outfitsGrid"></div>
+        </div>
+
+        <!-- Makeup -->
+        <div class="result-card makeup-card">
+            <div class="card-header">
+                <h3 data-i18n="makeup.title">Гоо сайхны өнгүүд</h3>
+            </div>
+            <div class="makeup-visual-grid">
+                <div class="makeup-panel">
+                    <div class="makeup-panel-label" data-i18n="makeup.lips">Уруул</div>
+                    <div class="makeup-panel-visual" id="makeupLips"></div>
+                </div>
+                <div class="makeup-panel">
+                    <div class="makeup-panel-label" data-i18n="makeup.eyes">Нүд</div>
+                    <div class="makeup-panel-visual" id="makeupEyes"></div>
+                </div>
+                <div class="makeup-panel">
+                    <div class="makeup-panel-label" data-i18n="makeup.blush">Хацар</div>
+                    <div class="makeup-panel-visual" id="makeupBlush"></div>
+                </div>
+                <div class="makeup-panel">
+                    <div class="makeup-panel-label" data-i18n="makeup.nails">Хумс</div>
+                    <div class="makeup-panel-visual" id="makeupNails"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fabrics + Metals -->
+        <div class="results-grid">
+            <div class="result-card fabric-card">
+                <div class="card-header">
+                    <h3 data-i18n="fabrics.title">Даавуу &amp; Хээ угалз</h3>
+                </div>
+                <div class="tag-section">
+                    <h4 data-i18n="fabrics.sub">Тохиромжтой даавуунууд</h4>
+                    <div class="tag-grid" id="fabricTags"></div>
+                </div>
+                <div class="tag-section">
+                    <h4 data-i18n="patterns.sub">Хамгийн тохиромжтой хээнүүд</h4>
+                    <div class="tag-grid" id="patternTags"></div>
+                </div>
+            </div>
+            <div class="result-card">
+                <div class="card-header">
+                    <h3 data-i18n="metals.title">Үнэт эдлэл &amp; Металл</h3>
+                </div>
+                <div class="jewelry-showcase" id="jewelryShowcase"></div>
+                <div class="tips-mini" style="margin-top:1.25rem;">
+                    <h4 data-i18n="tips.title">Загварын зөвлөгөө</h4>
+                    <ul class="tips-list" id="tipsList"></ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="results-footer">
+            <button class="btn btn-primary" id="newAnalysisBtn" data-i18n="btn.new">Шинэ шинжилгээ</button>
+        </div>
+    </section>
+
+    <!-- About section removed -->
+    <section id="about-system" style="display:none;">
+        <div>
+
+        <!-- Top metrics row -->
+        <div class="about-metrics">
+            <div class="metric-card accent-card">
+                <div class="metric-ring-wrap">
+                    <svg class="metric-ring" viewBox="0 0 80 80">
+                        <circle cx="40" cy="40" r="32" fill="none" stroke="rgba(255,255,255,.15)" stroke-width="7"/>
+                        <circle cx="40" cy="40" r="32" fill="none" stroke="#fff" stroke-width="7"
+                            stroke-dasharray="201" stroke-dashoffset="22"
+                            stroke-linecap="round" transform="rotate(-90 40 40)"
+                            class="accuracy-circle" id="accuracyCircle"/>
+                    </svg>
+                    <span class="metric-ring-val" id="metricAccuracy">89%</span>
+                </div>
+                <div class="metric-label" data-i18n="about.accuracy">Тестийн нарийвчлал</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-big" id="metricDataset">4,967</div>
+                <div class="metric-label" data-i18n="about.dataset">Сургалтын зураг</div>
+                <div class="metric-sub">UTKFace Dataset</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-big">42</div>
+                <div class="metric-label" data-i18n="about.features">Онцлог шинж</div>
+                <div class="metric-sub" data-i18n="about.features.sub">Арьс + Үс + Нүд + Тодосгол</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-big">12</div>
+                <div class="metric-label" data-i18n="about.classes">Ангиллын тоо</div>
+                <div class="metric-sub" data-i18n="about.classes.sub">Улирлын өнгийн систем</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-big">80/20</div>
+                <div class="metric-label" data-i18n="about.split">Сургалт / Тест</div>
+                <div class="metric-sub" data-i18n="about.split.sub">Хуваалтын харьцаа</div>
+            </div>
+        </div>
+
+        <!-- Pipeline architecture -->
+        <div class="about-block">
+            <h3 class="about-block-title" data-i18n="about.pipeline">Системийн архитектур</h3>
+            <div class="pipeline-flow">
+                <div class="pipe-step">
+                    <div class="pipe-icon" style="background:#EEF2FF;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#6366F1" stroke-width="1.8">
+                            <rect x="3" y="3" width="18" height="18" rx="3"/>
+                            <path d="M8 12l4-4 4 4M12 8v8"/>
+                        </svg>
+                    </div>
+                    <div class="pipe-name" data-i18n="pipe.input">Зураг оруулах</div>
+                    <div class="pipe-desc" data-i18n="pipe.input.desc">JPEG/PNG/WebP</div>
+                </div>
+                <div class="pipe-arrow">→</div>
+                <div class="pipe-step">
+                    <div class="pipe-icon" style="background:#FEF3C7;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="1.8">
+                            <circle cx="12" cy="12" r="9"/>
+                            <circle cx="9" cy="10" r="1.5" fill="#D97706"/>
+                            <circle cx="15" cy="10" r="1.5" fill="#D97706"/>
+                            <path d="M9 15 Q12 17.5 15 15"/>
+                        </svg>
+                    </div>
+                    <div class="pipe-name" data-i18n="pipe.detect">Царай илрүүлэх</div>
+                    <div class="pipe-desc">MediaPipe 478pt</div>
+                </div>
+                <div class="pipe-arrow">→</div>
+                <div class="pipe-step">
+                    <div class="pipe-icon" style="background:#ECFDF5;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="1.8">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                        </svg>
+                    </div>
+                    <div class="pipe-name" data-i18n="pipe.features">Онцлог гаргах</div>
+                    <div class="pipe-desc">CIE LAB / HSV</div>
+                </div>
+                <div class="pipe-arrow">→</div>
+                <div class="pipe-step">
+                    <div class="pipe-icon" style="background:#FDF4FF;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#A855F7" stroke-width="1.8">
+                            <rect x="2" y="9" width="6" height="6" rx="1"/>
+                            <rect x="9" y="4" width="6" height="6" rx="1"/>
+                            <rect x="9" y="14" width="6" height="6" rx="1"/>
+                            <rect x="16" y="9" width="6" height="6" rx="1"/>
+                            <path d="M8 12h1M15 12h1M12 10v4"/>
+                        </svg>
+                    </div>
+                    <div class="pipe-name" data-i18n="pipe.ml">ML Ансамбль</div>
+                    <div class="pipe-desc">GB + RF</div>
+                </div>
+                <div class="pipe-arrow">→</div>
+                <div class="pipe-step">
+                    <div class="pipe-icon" style="background:#FFF1F2;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#F43F5E" stroke-width="1.8">
+                            <circle cx="12" cy="12" r="4"/>
+                            <path d="M5.6 5.6l1.4 1.4M16.9 7l1.5-1.5M18.4 18.4l-1.4-1.4M7 16.9l-1.5 1.5"/>
+                            <circle cx="12" cy="12" r="9" stroke-dasharray="3 3"/>
+                        </svg>
+                    </div>
+                    <div class="pipe-name" data-i18n="pipe.output">Палитр гаргах</div>
+                    <div class="pipe-desc" data-i18n="pipe.output.desc">12 улирал</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Features + Algorithm split -->
+        <div class="about-grid">
+
+            <!-- Feature groups -->
+            <div class="about-block">
+                <h3 class="about-block-title" data-i18n="about.feat.title">42 Онцлог шинжийн бүлгүүд</h3>
+                <div class="feat-bars">
+                    <div class="feat-bar-row">
+                        <div class="feat-bar-label">
+                            <span data-i18n="feat.skin">Арьсны өнгө</span>
+                            <span class="feat-bar-num">18</span>
+                        </div>
+                        <div class="feat-bar-track">
+                            <div class="feat-bar-fill" style="width:42.9%;background:#C4785A;"></div>
+                        </div>
+                        <div class="feat-bar-sub" data-i18n="feat.skin.sub">L*a*b*, ITA, RGB, HSV хэмжигдэхүүнүүд</div>
+                    </div>
+                    <div class="feat-bar-row">
+                        <div class="feat-bar-label">
+                            <span data-i18n="feat.hair">Үсний өнгө</span>
+                            <span class="feat-bar-num">9</span>
+                        </div>
+                        <div class="feat-bar-track">
+                            <div class="feat-bar-fill" style="width:21.4%;background:#78716C;"></div>
+                        </div>
+                        <div class="feat-bar-sub" data-i18n="feat.hair.sub">Tone, saturation, darkness шинжүүд</div>
+                    </div>
+                    <div class="feat-bar-row">
+                        <div class="feat-bar-label">
+                            <span data-i18n="feat.eye">Нүдний өнгө</span>
+                            <span class="feat-bar-num">6</span>
+                        </div>
+                        <div class="feat-bar-track">
+                            <div class="feat-bar-fill" style="width:14.3%;background:#6366F1;"></div>
+                        </div>
+                        <div class="feat-bar-sub" data-i18n="feat.eye.sub">Iris hue, saturation, lightness</div>
+                    </div>
+                    <div class="feat-bar-row">
+                        <div class="feat-bar-label">
+                            <span data-i18n="feat.contrast">Тодосгол</span>
+                            <span class="feat-bar-num">9</span>
+                        </div>
+                        <div class="feat-bar-track">
+                            <div class="feat-bar-fill" style="width:21.4%;background:#10B981;"></div>
+                        </div>
+                        <div class="feat-bar-sub" data-i18n="feat.contrast.sub">Арьс-үс-нүдний харьцаат ялгаа</div>
+                    </div>
+                </div>
+                <div class="feat-total-row">
+                    <span data-i18n="feat.total">Нийт онцлог:</span>
+                    <strong>42</strong>
+                    <span class="feat-formula">= 18 + 9 + 6 + 9</span>
+                </div>
+            </div>
+
+            <!-- Algorithm info -->
+            <div class="about-block">
+                <h3 class="about-block-title" data-i18n="about.algo.title">ML Алгоритм</h3>
+                <div class="algo-card ensemble">
+                    <div class="algo-badge" data-i18n="algo.used">Ашигласан</div>
+                    <div class="algo-name">Ensemble</div>
+                    <div class="algo-sub">GradientBoosting + RandomForest</div>
+                    <div class="algo-chips">
+                        <span class="algo-chip">Soft Voting</span>
+                        <span class="algo-chip">42 features</span>
+                        <span class="algo-chip">12 classes</span>
+                    </div>
+                    <div class="algo-acc-row">
+                        <span data-i18n="algo.acc">Нарийвчлал:</span>
+                        <strong class="algo-acc-val" id="algoAccVal">89%</strong>
+                    </div>
+                </div>
+                <div class="algo-compare">
+                    <div class="algo-compare-title" data-i18n="algo.compare">Харьцуулалт</div>
+                    <div class="algo-compare-rows" id="algoCompareRows">
+                        <div class="acr-row">
+                            <span class="acr-name">GradientBoosting</span>
+                            <div class="acr-bar-wrap"><div class="acr-bar" style="width:85%"></div></div>
+                            <span class="acr-val">~85%</span>
+                        </div>
+                        <div class="acr-row">
+                            <span class="acr-name">RandomForest</span>
+                            <div class="acr-bar-wrap"><div class="acr-bar" style="width:82%"></div></div>
+                            <span class="acr-val">~82%</span>
+                        </div>
+                        <div class="acr-row highlight-row">
+                            <span class="acr-name">Ensemble ✓</span>
+                            <div class="acr-bar-wrap"><div class="acr-bar accent-bar" style="width:89%"></div></div>
+                            <span class="acr-val" id="ensembleAccVal">89%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div><!-- /about-grid -->
+
+        <!-- Dataset info -->
+        <div class="about-block">
+            <h3 class="about-block-title" data-i18n="about.data.title">Сургалтын датасет</h3>
+            <div class="dataset-cards">
+                <div class="ds-card">
+                    <div class="ds-icon">📊</div>
+                    <div class="ds-info">
+                        <div class="ds-name">UTKFace Dataset</div>
+                        <div class="ds-source">Kaggle — Zhang et al., 2017</div>
+                        <div class="ds-desc" data-i18n="ds.desc">Нас, хүйс, угсаа гарвалаар тэмдэглэгдсэн нийт 20,000+ царайны зураг агуулдаг олон нийтийн датасет. Манай системд 4,967 зургийг ашигласан.</div>
+                    </div>
+                </div>
+                <div class="ds-stats-row">
+                    <div class="ds-stat-box">
+                        <div class="ds-stat-num" id="dsTrain">3,973</div>
+                        <div class="ds-stat-label" data-i18n="ds.train">Сургалтын зураг</div>
+                    </div>
+                    <div class="ds-stat-box">
+                        <div class="ds-stat-num" id="dsTest">994</div>
+                        <div class="ds-stat-label" data-i18n="ds.test">Тестийн зураг</div>
+                    </div>
+                    <div class="ds-stat-box">
+                        <div class="ds-stat-num">12</div>
+                        <div class="ds-stat-label" data-i18n="ds.classes">Ангилал</div>
+                    </div>
+                    <div class="ds-stat-box">
+                        <div class="ds-stat-num">42</div>
+                        <div class="ds-stat-label" data-i18n="ds.feats">Онцлог</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Color theory reference -->
+        <div class="about-block">
+            <h3 class="about-block-title" data-i18n="about.theory.title">Өнгийн шинжлэх ухааны суурь</h3>
+            <div class="theory-cards">
+                <div class="theory-card">
+                    <div class="theory-icon" style="color:#C4785A;">L*a*b*</div>
+                    <div class="theory-name">CIE LAB</div>
+                    <div class="theory-desc" data-i18n="theory.lab">Хүний нүдний мэдрэхүйд суурилсан өнгийн орон зай. Арьсны өнгийг тодорхойлоход хамгийн найдвартай метрик.</div>
+                </div>
+                <div class="theory-card">
+                    <div class="theory-icon" style="color:#6366F1;">ITA°</div>
+                    <div class="theory-name">ITA Өнцөг</div>
+                    <div class="theory-desc" data-i18n="theory.ita">Individual Typology Angle — Chardon et al. (1991). L* ба b* утгуудаас гарган авдаг арьсны меланин агуулгын хэмжүүр.</div>
+                </div>
+                <div class="theory-card">
+                    <div class="theory-icon" style="color:#10B981;">I–VI</div>
+                    <div class="theory-name">Fitzpatrick</div>
+                    <div class="theory-desc" data-i18n="theory.fitz">Dermatologist Thomas Fitzpatrick (1975) арьсны 6 ангиллын хуваарь. Нарны хэт ягаан туяанд арьсны хариу үйлдлийг үнэлдэг.</div>
+                </div>
+                <div class="theory-card">
+                    <div class="theory-icon" style="color:#A855F7;">12✦</div>
+                    <div class="theory-name">12-Season</div>
+                    <div class="theory-desc" data-i18n="theory.season">Suzanne Caygill (1980) болон Carole Jackson "Color Me Beautiful" (1980) бүтээлд суурилсан улирлын өнгийн шинжилгээний систем.</div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- ═══ FOOTER ═══ -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <span class="brand-icon">C</span>
+                <span>ChromaSense AI</span>
+            </div>
+            <p class="footer-text" data-i18n="footer.text">Дипломын ажил: Хиймэл оюун ухаанд суурилсан хүний арьсны өнгө тодорхойлох, тохирох хувцасны өнгө санал болгох систем</p>
+            <p class="footer-copy" data-i18n="footer.copy">CIE LAB өнгийн шинжлэх ухаан, ITA өнцөг (Chardon et al., 1991), Fitzpatrick хуваарь болон 12 улирлын өнгийн шинжилгээний онолд суурилсан.</p>
+        </div>
+    </footer>
+
+    <div class="copied-tooltip"></div>
+    <script src="/static/js/app.js?v=17"></script>
+</body>
+</html>
