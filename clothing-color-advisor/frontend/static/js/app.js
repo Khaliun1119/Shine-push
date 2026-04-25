@@ -1,6 +1,6 @@
 /**
- * ChromaSense AI — Frontend Application v13
- * Full-bleed editorial hero, luxury boutique design.
+ * Skin & Outfit Advisor — Frontend Application v20
+ * Modern purple UI design.
  */
 
 const API_BASE = window.location.origin;
