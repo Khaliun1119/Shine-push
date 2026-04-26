@@ -1,0 +1,14 @@
+.footer {
+    border-top:1px solid #EDE8E3;
+    padding:3rem 6rem; margin-top:0;
+    background:#F5F0EB;
+}
+.footer-content { max-width:640px; margin:0 auto; text-align:center; }
+.footer-brand {
+    display:flex; align-items:center; justify-content:center;
+    gap:.5rem; margin-bottom:.8rem;
+}
+.footer-brand .brand-icon { width:28px; height:28px; font-size:.85rem; }
+.footer-brand span:last-child { font-family:var(--font-head); font-weight:600; color:var(--text-1); }
+.footer-text { font-size:.8rem; color:var(--text-2); margin-bottom:.3rem; line-height:1.6; }
+.footer-copy { font-size:.73rem; color:var(--text-3); line-height:1.65; }

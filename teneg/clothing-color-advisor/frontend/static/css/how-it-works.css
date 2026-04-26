@@ -1,0 +1,219 @@
+/* Editorial 2-column "How it works" — phone mockup + step list. */
+
+.new-how-section {
+    padding: 100px 10%;
+    background-color: rgba(238, 226, 219, 0.2);
+    display: flex;
+    justify-content: center;
+}
+
+.how-container {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    max-width: 1200px;
+}
+
+.how-visual-side {
+    flex: 0 0 400px;
+    max-width: 400px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.phone-mockup {
+    position: relative;
+    border-radius: 40px;
+    overflow: hidden;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+    border: 8px solid #fff;
+}
+.phone-mockup img {
+    width: 100%;
+    display: block;
+}
+
+.how-text-side { flex: 1; }
+
+.new-step-item {
+    display: flex;
+    gap: 25px;
+    margin-bottom: 35px;
+}
+
+.step-number {
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: #000000;
+    font-style: italic;
+    opacity: 0.6;
+}
+
+.step-info h3 {
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+    color: #333;
+}
+.step-info p {
+    color: #666;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+.begin-analysis-btn {
+    background-color: #000000;
+    color: white;
+    padding: 16px 40px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+.begin-analysis-btn:hover {
+    background-color: #000000;
+    transform: translateY(-3px);
+}
+
+/* Animated scan line overlay on the phone mockup. */
+.scan-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: #000000;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+    animation: scanMove 4s infinite linear;
+    z-index: 10;
+}
+@keyframes scanMove {
+    0%   { top: 0; }
+    50%  { top: 100%; }
+    100% { top: 0; }
+}
+
+@media (max-width: 968px) {
+    .how-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .new-step-item {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+/* ─── Editorial "how-section" (legacy 3-step card layout, kept for fallback) ─── */
+.how-section {
+    padding: 9rem 7rem;
+    background: #FAF8F5;
+    position: relative;
+    overflow: hidden;
+}
+.how-section::before {
+    content: '';
+    position: absolute;
+    top: -200px; right: -200px;
+    width: 700px; height: 700px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(26,20,17,.03) 0%, transparent 65%);
+    pointer-events: none;
+}
+.how-header { text-align: center; margin-bottom: 5rem; }
+.how-header .section-title { color: var(--text-1); margin-bottom: 0; }
+.how-header .section-eyebrow {
+    color: var(--text-1);
+    background: #F0EAE4;
+    border-color: #EDE8E3;
+}
+.how-header .section-sub { color: var(--text-2); }
+
+.steps-grid { display:flex; align-items:stretch; gap:0; max-width:1120px; margin:0 auto; }
+.step-card {
+    flex: 1;
+    background: #FFFFFF;
+    border: 1px solid #EDE8E3;
+    border-radius: var(--radius-xl);
+    padding: 3rem 2.4rem 2.8rem;
+    transition: background var(--ease), border-color var(--ease), transform var(--ease), box-shadow var(--ease);
+    position: relative; overflow: hidden; z-index: 1;
+    box-shadow: 0 2px 12px rgba(26,20,17,.05);
+}
+.step-card:hover {
+    background: #FFFFFF;
+    border-color: #1A1411;
+    transform: translateY(-7px);
+    box-shadow: 0 20px 48px rgba(26,20,17,.10), 0 0 0 1px rgba(26,20,17,.06);
+}
+.step-card::before {
+    content: '';
+    position: absolute; top: 0; left: 12%; right: 12%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(26,20,17,.25), transparent);
+    opacity: 0; transition: opacity var(--ease);
+}
+.step-card:hover::before { opacity: 1; }
+
+.step-connector {
+    display: flex; flex-direction: column; align-items: center;
+    justify-content: center; padding-top: 3.5rem;
+    width: 60px; flex-shrink: 0; gap: .3rem;
+}
+.connector-line {
+    width: 1px; height: 40px;
+    background: linear-gradient(180deg, rgba(26,20,17,.06), rgba(26,20,17,.18), rgba(26,20,17,.06));
+}
+.connector-arrow {
+    font-size: 1.1rem; color: rgba(26,20,17,.3); line-height: 1;
+    transform: rotate(90deg);
+}
+
+.step-visual { display:flex; align-items:center; gap:1rem; margin-bottom:1.8rem; }
+.step-num-glow {
+    font-family: var(--font-head); font-size: 6.5rem; font-weight: 800;
+    color: transparent; -webkit-text-stroke: 1px rgba(26,20,17,.06);
+    line-height: 1; position: absolute;
+    top: .8rem; right: 1.2rem; pointer-events: none;
+}
+.step-card:hover .step-num-glow { -webkit-text-stroke-color: rgba(26,20,17,.12); }
+.step-icon-circle {
+    width: 54px; height: 54px; border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    background: #F5F0EB !important;
+    border: 1px solid #EDE8E3;
+    color: var(--text-1);
+    transition: background var(--ease), border-color var(--ease), transform var(--ease-spring);
+}
+.step-card:hover .step-icon-circle {
+    background: #FBEDE7 !important;
+    border-color: rgba(26,20,17,.2);
+    color: #1A1411;
+    transform: scale(1.08);
+}
+.step-icon-circle svg { flex-shrink: 0; }
+
+.step-number-badge,
+.step-icon-wrap,
+.step-icon { display: none; }
+
+.step-card h3 {
+    font-family: var(--font-head); font-size: 1.35rem; font-weight: 600;
+    color: var(--text-1); margin-bottom: .65rem; letter-spacing: -.01em;
+}
+.step-card p { color: var(--text-2); font-size: .875rem; line-height: 1.82; margin-bottom: .9rem; }
+.step-hint { font-size: .67rem; font-weight: 600; color: var(--text-3); letter-spacing: .07em; text-transform: uppercase; }
+
+.step-tag {
+    display: inline-block;
+    font-size: .6rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+    color: #1A1411;
+    background: rgba(26,20,17,.04);
+    border: 1px solid rgba(26,20,17,.12);
+    border-radius: var(--radius-pill);
+    padding: .2rem .7rem;
+    margin-bottom: .75rem;
+    width: fit-content;
+}

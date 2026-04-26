@@ -1,0 +1,64 @@
+<section id="analyze" class="analyze-section">
+    <h2 class="section-title" data-i18n="analyze.title">Өнгийн шинжилгээ</h2>
+    <div class="analyze-container">
+        <div class="upload-area" id="uploadArea">
+            <div class="upload-methods">
+                <div class="upload-card" id="fileUploadCard">
+                    <div class="upload-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+                            <polyline points="17 8 12 3 7 8"/>
+                            <line x1="12" y1="3" x2="12" y2="15"/>
+                        </svg>
+                    </div>
+                    <h3 data-i18n="upload.title">Зураг оруулах</h3>
+                    <p data-i18n="upload.sub">Чирж оруулах эсвэл дарж сонгох</p>
+                    <p class="upload-hint" data-i18n="upload.hint">JPEG · PNG · WebP</p>
+                    <input type="file" id="fileInput" accept="image/jpeg,image/png,image/webp" hidden>
+                </div>
+                <div class="upload-divider"><span data-i18n="or">эсвэл</span></div>
+                <div class="upload-card" id="cameraCard">
+                    <div class="upload-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/>
+                            <circle cx="12" cy="13" r="4"/>
+                        </svg>
+                    </div>
+                    <h3 data-i18n="camera.title">Камер ашиглах</h3>
+                    <p data-i18n="camera.sub">Вэбкамераар зураг авах</p>
+                    <p class="upload-hint" data-i18n="camera.hint">Сайн гэрэлтэй байдлыг хангаарай</p>
+                </div>
+            </div>
+            <div class="preview-container" id="previewContainer" style="display:none;">
+                <img id="previewImage" alt="Preview">
+                <div class="preview-actions">
+                    <button class="btn btn-secondary" id="clearBtn" data-i18n="btn.clear">Зураг солих</button>
+                    <button class="btn btn-primary" id="analyzeBtn" data-i18n="btn.analyze">Шинжлэх</button>
+                </div>
+            </div>
+            <div class="camera-container" id="cameraContainer" style="display:none;">
+                <video id="cameraVideo" autoplay playsinline></video>
+                <canvas id="cameraCanvas" style="display:none;"></canvas>
+                <div class="camera-actions">
+                    <button class="btn btn-secondary" id="closeCameraBtn" data-i18n="btn.close.camera">Болих</button>
+                    <button class="btn btn-primary" id="captureBtn" data-i18n="btn.capture">Зураг авах</button>
+                </div>
+            </div>
+        </div>
+        <div class="loading-container" id="loadingContainer" style="display:none;">
+            <div class="loading-spinner">
+                <div class="spinner-ring"></div>
+                <div class="spinner-ring"></div>
+                <div class="spinner-ring"></div>
+            </div>
+            <h3 data-i18n="loading.title">Арьсны өнгийг шинжилж байна...</h3>
+            <p class="loading-step" id="loadingStep" data-i18n="loading.step">Царай илрүүлж байна...</p>
+        </div>
+        <div class="error-container" id="errorContainer" style="display:none;">
+            <div class="error-icon">!</div>
+            <h3 id="errorTitle" data-i18n="error.title">Шинжилгээ амжилтгүй болов</h3>
+            <p id="errorMessage"></p>
+            <button class="btn btn-primary" id="retryBtn" data-i18n="btn.retry">Дахин оролдох</button>
+        </div>
+    </div>
+</section>

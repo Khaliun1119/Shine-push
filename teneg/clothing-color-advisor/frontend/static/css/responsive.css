@@ -1,0 +1,63 @@
+/* Global breakpoint overrides. Loaded last so it wins cascade ties. */
+
+@media (max-width: 1280px) {
+    .hero { grid-template-columns: 55% 45%; }
+    .hero-content { padding: 5rem 2rem 5rem 5rem; }
+}
+
+@media (max-width: 1024px) {
+    .hero-content { width:80%; padding: 5rem 2.5rem 4rem 4rem; }
+    .hero-actions { justify-content:flex-start; }
+    .how-section,
+    .analyze-section { padding: 5rem 3rem; }
+    .seasons-grid { grid-template-columns: repeat(2, 1fr); }
+    .season-showcase { min-height:420px; }
+    .steps-grid { flex-direction:column; align-items:stretch; }
+    .step-connector { display:none; }
+    .stats-strip { padding: 1.75rem 3rem; }
+    .stat-item { padding: 0 2rem; }
+    .results-section { padding: 4rem 3rem; }
+    .results-grid { grid-template-columns: 1fr; }
+    .result-card.profile-card,
+    .result-card.season-card { grid-column: span 1; }
+    .footer { padding: 2rem 3rem; }
+    .about-section { padding: 5rem 3rem; }
+    .about-grid { grid-template-columns: 1fr; }
+    .theory-cards { grid-template-columns: repeat(2, 1fr); }
+    .outfits-grid { columns: 2; }
+}
+
+@media (max-width: 640px) {
+    .navbar { padding: 0 1.25rem; }
+    .hero-content { width:100%; padding: 5rem 1.5rem 3rem 1.75rem; }
+    .hero-overlay {
+        background: linear-gradient(to bottom, rgba(10,3,7,.75) 0%, rgba(10,3,7,.55) 60%, rgba(10,3,7,.75) 100%);
+    }
+    .hero-btn { min-width:200px; padding: .9rem 2rem; }
+    .how-section,
+    .analyze-section { padding: 4rem 1.5rem; }
+    .seasons-grid { grid-template-columns: repeat(2, 1fr); }
+    .season-showcase { min-height:320px; }
+    .seasons-header { padding: 4rem 1.5rem 3rem; }
+    .stats-strip { padding: 1.5rem 1rem; flex-wrap:wrap; gap:1rem; }
+    .stat-item { padding: 0 1rem; }
+    .stat-divider { display:none; }
+    .seasons-grid { grid-template-columns: 1fr 1fr; gap:.75rem; }
+    .upload-methods { flex-direction:column; }
+    .upload-divider { display:none; }
+    .biometric-trio { gap:.5rem; }
+    .biometric-item { padding:.75rem .4rem; }
+    .results-section { padding: 3rem 1.25rem; }
+    .makeup-visual-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer { padding: 2rem 1.5rem; }
+    .lang-toggle { display:none; }
+    .about-section { padding: 3.5rem 1.5rem; }
+    .about-metrics { gap:.75rem; }
+    .metric-card { min-width:120px; padding: 1.25rem 1rem; }
+    .pipeline-flow { gap:.35rem; }
+    .pipe-step { min-width:70px; padding:.75rem .5rem; }
+    .theory-cards { grid-template-columns: 1fr 1fr; }
+    .ds-stats-row { gap:.5rem; }
+    .outfits-grid { columns:1; }
+    .hero-eyebrow { font-size:.6rem; }
+}

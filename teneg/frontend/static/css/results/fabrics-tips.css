@@ -1,0 +1,93 @@
+/* Fabric + Pattern texture cards, tag pills, tips list. */
+
+.tag-section { margin-bottom:1.1rem; }
+.tag-section h4 {
+    font-size:.76rem; font-weight:700; color:var(--text-2);
+    text-transform:uppercase; letter-spacing:.07em;
+    margin-bottom:.65rem;
+}
+.tag-grid {
+    display:grid;
+    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+    gap:.5rem;
+}
+
+.tag {
+    padding:.3rem .8rem;
+    background:var(--accent-lt); color:var(--accent);
+    border-radius:var(--radius-pill);
+    font-size:.76rem; font-weight:600;
+    border:1px solid var(--border-pink);
+    transition: transform var(--ease);
+}
+.tag:hover { transform:scale(1.04); }
+
+.texture-card {
+    max-width: 80px;
+    margin: 0 auto;
+}
+.texture-preview {
+    width: 100%;
+    aspect-ratio: 1;
+}
+.texture-name {
+    font-size: .55rem;
+}
+
+.tips-mini { margin-top:1rem; }
+.tips-mini h4 {
+    font-size:.76rem; font-weight:700; color:var(--text-2);
+    text-transform:uppercase; letter-spacing:.07em;
+    margin-bottom:.65rem;
+}
+.tips-list { padding-left:1.1rem; }
+.tips-list li {
+    font-size:.84rem; color:var(--text-2);
+    margin-bottom:.45rem; line-height:1.55;
+}
+
+/* ── Full-width tips card with photo ── */
+.tips-full-card { margin-top:1rem; }
+.tips-full-layout {
+    display:flex; gap:1.5rem; align-items:flex-start;
+}
+.tips-photo-col {
+    width:110px; flex-shrink:0; position:relative;
+    display:flex; flex-direction:column; align-items:center; gap:.5rem;
+}
+.tips-photo-col img {
+    width:100%; aspect-ratio:3/4; object-fit:cover;
+    border-radius:var(--radius-lg);
+    box-shadow:0 6px 20px rgba(0,0,0,.14);
+}
+.tips-photo-placeholder {
+    width:100%; aspect-ratio:3/4; border-radius:var(--radius-lg);
+    background:var(--accent-lt); border:2px dashed var(--border);
+    display:flex; align-items:center; justify-content:center;
+}
+.tips-photo-placeholder svg { width:28px; height:28px; stroke:var(--accent); opacity:.5; }
+.tips-photo-badge {
+    font-size:.58rem; font-weight:700; color:var(--accent);
+    text-align:center; letter-spacing:.04em;
+}
+.tips-content-col { flex:1; min-width:0; }
+.tips-intro-text {
+    font-size:.8rem; color:var(--text-2); line-height:1.6;
+    margin-bottom:.75rem;
+    padding:.65rem .85rem; background:var(--accent-lt);
+    border-radius:var(--radius-md); border-left:3px solid var(--accent);
+}
+.tips-list-full { padding-left:0; list-style:none; }
+.tips-list-full li {
+    font-size:.84rem; color:var(--text-2);
+    margin-bottom:.6rem; line-height:1.65;
+    padding:.5rem .75rem .5rem 2rem;
+    background:#fff; border-radius:var(--radius-sm);
+    border:1px solid var(--border);
+    position:relative;
+}
+.tips-list-full li::before {
+    content:'✦'; position:absolute; left:.65rem;
+    color:var(--accent); font-size:.65rem;
+    top:50%; transform:translateY(-50%);
+}

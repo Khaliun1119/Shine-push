@@ -1,0 +1,76 @@
+.navbar {
+    position: fixed; top:0; left:0; right:0; z-index:100;
+    display: flex; justify-content:space-between; align-items:center;
+    padding: 0 3.5rem; height: 68px;
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border-bottom: 1px solid transparent;
+    transition: background .35s ease, border-color .35s ease, backdrop-filter .35s ease;
+}
+.navbar.scrolled {
+    background: rgba(250,248,245,.96);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid #EDE8E3;
+}
+.navbar.scrolled .nav-links a { color: var(--text-2); }
+.navbar.scrolled .nav-links a:hover { color: var(--text-1); }
+.navbar.scrolled .lang-toggle {
+    border-color: #EDE8E3;
+    background: #F5F0EB;
+    color: var(--text-2);
+}
+.navbar.scrolled .lang-toggle:hover {
+    border-color: #1A1411;
+    color: #1A1411;
+}
+.navbar.scrolled .lang-opt.active { color: #1A1411; }
+.navbar.scrolled .lang-sep { color: #D4C8C0; }
+
+.nav-brand { display:flex; align-items:center; gap:.65rem; }
+.brand-icon {
+    width:34px; height:34px;
+    background: linear-gradient(135deg, #ebebeb 0%, #ffffff 100%);
+    border-radius:10px;
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--font-head); font-weight:700; font-size:1.05rem; color:#fff;
+    box-shadow: 0 4px 14px rgba(3, 2, 2, 0.38);
+    letter-spacing:-0.02em;
+}
+.brand-text {
+    font-family: var(--font-head);
+    font-size:1.2rem; font-weight:700; color:#ffffff;
+    letter-spacing:0.01em;
+    text-shadow: 0 1px 4px rgba(0,0,0,.35);
+}
+.navbar.scrolled .brand-text {
+    color: var(--text-1);
+    text-shadow: none;
+}
+.brand-ai { color:#ffffff; font-weight:700; font-style:italic; }
+
+.nav-links { display:flex; align-items:center; gap:2rem; }
+.nav-links a {
+    color:rgba(255, 255, 255, 0.65); text-decoration:none;
+    font-size:.85rem; font-weight:500;
+    letter-spacing:.02em;
+    transition:color var(--ease);
+}
+.nav-links a:hover { color:#fff; }
+.nav-cta {
+    padding:.5rem 1.4rem;
+    background: #ffffff;
+    color: #1A1411 !important;
+    border-radius: var(--radius-pill);
+    font-weight: 700 !important;
+    font-size: .83rem !important;
+    box-shadow: 0 4px 16px rgba(0,0,0,.28);
+    transition: transform var(--ease), box-shadow var(--ease), background var(--ease) !important;
+    letter-spacing: .03em;
+}
+.nav-cta:hover {
+    transform: translateY(-1px);
+    background: #F5F0EB;
+    box-shadow: 0 8px 24px rgba(0,0,0,.38) !important;
+}

@@ -1,0 +1,120 @@
+{# Biometric trio card — shows analyzed photo + skin/hair/eye orbs + details + why-color block. #}
+<div class="result-card profile-card">
+    <div class="card-header">
+        <h3 data-i18n="profile.title">Гарсан үр дүн</h3>
+    </div>
+
+    <div class="analyzed-photo-wrap" id="analyzedPhotoWrap" style="display:none;">
+        <img id="analyzedPhoto" class="analyzed-photo" alt="">
+        <div class="photo-scan-line"></div>
+        <div class="photo-corner tl"></div>
+        <div class="photo-corner tr"></div>
+        <div class="photo-corner bl"></div>
+        <div class="photo-corner br"></div>
+    </div>
+
+    <div class="biometric-trio">
+        <div class="biometric-item">
+            <div class="bm-visual">
+                <div class="color-orb" id="skinOrb">
+                    <svg class="orb-icon" viewBox="0 0 48 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2,52 Q4,40 12,36 Q17,34 24,34 Q31,34 36,36 Q44,40 46,52Z" fill="rgba(255,255,255,0.45)"/>
+                        <rect x="20" y="28" width="8" height="9" rx="2" fill="rgba(255,255,255,0.5)"/>
+                        <ellipse cx="24" cy="19" rx="10" ry="12" fill="rgba(255,255,255,0.55)"/>
+                        <ellipse cx="19" cy="13" rx="4.5" ry="2.5" fill="rgba(255,255,255,0.25)" transform="rotate(-25 19 13)"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="bm-info">
+                <div class="bm-color-name" id="skinColorName"></div>
+                <div class="bm-hex" id="skinHex">#D08B5B</div>
+                <div class="bm-label" data-i18n="skin.label">Арьсны өнгө</div>
+            </div>
+        </div>
+
+        <div class="biometric-item">
+            <div class="bm-visual">
+                <div class="color-orb" id="hairOrb">
+                    <svg class="orb-icon" viewBox="0 0 48 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14,20 Q13,6 24,4 Q35,6 34,20" fill="rgba(255,255,255,0.65)"/>
+                        <ellipse cx="24" cy="22" rx="9" ry="10.5" fill="rgba(255,255,255,0.35)"/>
+                        <path d="M15,20 Q9,30 10,46" stroke="rgba(255,255,255,0.7)" stroke-width="4" stroke-linecap="round" fill="none"/>
+                        <path d="M16,21 Q12,33 14,47" stroke="rgba(255,255,255,0.35)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                        <path d="M33,20 Q39,30 38,46" stroke="rgba(255,255,255,0.7)" stroke-width="4" stroke-linecap="round" fill="none"/>
+                        <path d="M32,21 Q36,33 34,47" stroke="rgba(255,255,255,0.35)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                        <ellipse cx="17" cy="10" rx="4" ry="2" fill="rgba(255,255,255,0.3)" transform="rotate(25 17 10)"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="bm-info">
+                <div class="bm-color-name" id="hairColorName"></div>
+                <div class="bm-hex" id="hairHex">#3B1A0E</div>
+                <div class="bm-label" data-i18n="hair.label">Үсний өнгө</div>
+            </div>
+        </div>
+
+        <div class="biometric-item">
+            <div class="bm-visual">
+                <div class="color-orb eye-orb" id="eyeOrb">
+                    <svg class="eye-orb-svg" viewBox="0 0 82 82" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <ellipse cx="41" cy="43" rx="28" ry="16" fill="rgba(0,0,0,0.07)"/>
+                        <path d="M13,41 Q27,22 41,22 Q55,22 69,41 Q55,60 41,60 Q27,60 13,41Z" fill="white"/>
+                        <circle cx="41" cy="41" r="14" id="eyeIrisSvg" fill="#6B4226"/>
+                        <circle cx="41" cy="41" r="14" fill="none" stroke="rgba(0,0,0,0.12)" stroke-width="1.5"/>
+                        <circle cx="41" cy="41" r="10" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+                        <circle cx="41" cy="41" r="7" fill="#0a0808"/>
+                        <circle cx="47" cy="34" r="4.5" fill="rgba(255,255,255,0.75)"/>
+                        <circle cx="45" cy="38" r="1.8" fill="rgba(255,255,255,0.35)"/>
+                        <path d="M13,41 Q27,22 41,22 Q55,22 69,41" stroke="#1a0a0a" stroke-width="2.8" stroke-linecap="round" fill="none"/>
+                        <path d="M15,39 L11,33" stroke="#1a0a0a" stroke-width="1.6" stroke-linecap="round"/>
+                        <path d="M20,31 L17,24" stroke="#1a0a0a" stroke-width="1.6" stroke-linecap="round"/>
+                        <path d="M28,24 L26,17" stroke="#1a0a0a" stroke-width="1.6" stroke-linecap="round"/>
+                        <path d="M36,22 L35,15" stroke="#1a0a0a" stroke-width="1.6" stroke-linecap="round"/>
+                        <path d="M41,22 L41,14" stroke="#1a0a0a" stroke-width="1.8" stroke-linecap="round"/>
+                        <path d="M46,22 L47,15" stroke="#1a0a0a" stroke-width="1.6" stroke-linecap="round"/>
+                        <path d="M54,24 L56,17" stroke="#1a0a0a" stroke-width="1.6" stroke-linecap="round"/>
+                        <path d="M62,31 L65,24" stroke="#1a0a0a" stroke-width="1.6" stroke-linecap="round"/>
+                        <path d="M67,39 L71,33" stroke="#1a0a0a" stroke-width="1.6" stroke-linecap="round"/>
+                        <path d="M15,43 Q27,57 41,58 Q55,57 67,43" stroke="rgba(26,10,10,0.35)" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="bm-info">
+                <div class="bm-color-name" id="eyeColorName"></div>
+                <div class="bm-hex" id="eyeHex">#6B4226</div>
+                <div class="bm-label" data-i18n="eye.label">Нүдний өнгө</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="profile-details">
+        <div class="detail-row">
+            <span class="detail-label" data-i18n="detail.tone">Өнгийн нэр</span>
+            <span class="detail-value" id="toneName"></span>
+        </div>
+        <div class="detail-row">
+            <span class="detail-label" data-i18n="detail.fitz">Fitzpatrick</span>
+            <span class="detail-value" id="fitzpatrickType"></span>
+        </div>
+        <div class="detail-row">
+            <span class="detail-label" data-i18n="detail.under">Дотоод өнгө</span>
+            <span class="detail-value" id="undertoneType"></span>
+        </div>
+        <div class="detail-row">
+            <span class="detail-label" data-i18n="detail.ita">ITA өнцөг</span>
+            <span class="detail-value" id="itaAngle"></span>
+        </div>
+    </div>
+    <p class="tone-description" id="toneDescription"></p>
+    <p class="undertone-description" id="undertoneDescription"></p>
+
+    <div class="why-color-section" id="whyColorSection" style="display:none;">
+        <div class="why-color-title">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+            Яагаад эдгээр өнгүүд таны дүр төрхтэй зохицох вэ
+        </div>
+        <p class="why-color-text" id="whyColorText"></p>
+    </div>
+
+    <div class="float-chips-wrap" id="floatChipsWrap"></div>
+</div>

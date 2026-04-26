@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ColorMe | Хувийн өнгийн шинжилгээ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+    {% set css_version = '46' %}
+    <link rel="stylesheet" href="/static/css/base.css?v={{ css_version }}">
+    <link rel="stylesheet" href="/static/css/dashboard.css?v={{ css_version }}">
+    <link rel="stylesheet" href="/static/css/components.css?v={{ css_version }}">
+    <link rel="stylesheet" href="/static/css/analyze.css?v={{ css_version }}">
+    <link rel="stylesheet" href="/static/css/results/cards.css?v={{ css_version }}">
+    <link rel="stylesheet" href="/static/css/results/profile.css?v={{ css_version }}">
+    <link rel="stylesheet" href="/static/css/results/season.css?v={{ css_version }}">
+    <link rel="stylesheet" href="/static/css/results/clothing.css?v={{ css_version }}">
+    <link rel="stylesheet" href="/static/css/results/drape.css?v={{ css_version }}">
+    <link rel="stylesheet" href="/static/css/results/outfits.css?v={{ css_version }}">
+    <link rel="stylesheet" href="/static/css/results/makeup.css?v={{ css_version }}">
+    <link rel="stylesheet" href="/static/css/results/jewelry.css?v={{ css_version }}">
+    <link rel="stylesheet" href="/static/css/results/fabrics-tips.css?v={{ css_version }}">
+    <link rel="stylesheet" href="/static/css/about.css?v={{ css_version }}">
+</head>
+<body>
+
+<!-- ══════════════ TOP NAVBAR ══════════════ -->
+<header class="top-navbar" id="topNavbar">
+    <div class="navbar-inner">
+        <div class="navbar-brand">
+            <div class="navbar-logo">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path d="M6 3L2 9l10 12L22 9l-4-6H6z" fill="rgba(255,255,255,0.95)"/>
+                    <line x1="2" y1="9" x2="22" y2="9" stroke="rgba(255,255,255,0.4)" stroke-width="0.8"/>
+                    <line x1="6" y1="3" x2="12" y2="9" stroke="rgba(255,255,255,0.35)" stroke-width="0.7"/>
+                    <line x1="18" y1="3" x2="12" y2="9" stroke="rgba(255,255,255,0.35)" stroke-width="0.7"/>
+                </svg>
+            </div>
+            <span class="navbar-brand-text">ColorMe</span>
+        </div>
+        <nav class="navbar-nav">
+            <button class="navbar-link" id="topnav-dashboard" onclick="window.navigateToView('dashboard')">Нүүр</button>
+            <button class="navbar-link" id="topnav-analyze" onclick="window.navigateToView('analyze')">Шинжилгээ</button>
+            <button class="navbar-link" id="topnav-results" onclick="window.navigateToView('results')">Үр дүн</button>
+            <button class="navbar-link" id="topnav-colors" onclick="window.navigateToView('colors')">Өнгийн зөвлөгөө</button>
+        </nav>
+        <div class="navbar-actions">
+            <button class="navbar-cta" onclick="window.navigateToView('analyze')">Шинжилгээ хийх</button>
+            <div class="navbar-avatar">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+                    <circle cx="12" cy="8" r="4"/>
+                    <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="app-shell">
+
+    <!-- ══════════════ SIDEBAR ══════════════ -->
+    <aside class="sidebar">
+        <nav class="sidebar-nav">
+            <button class="nav-item active" id="nav-dashboard" onclick="window.navigateToView('dashboard')">
+                <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+                <span>Нүүр хуудас</span>
+            </button>
+            <button class="nav-item" id="nav-analyze" onclick="window.navigateToView('analyze')">
+                <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                <span>Шинжилгээ</span>
+            </button>
+            <button class="nav-item" id="nav-results" onclick="window.navigateToView('results')">
+                <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                <span>Үр дүн</span>
+            </button>
+            <button class="nav-item" id="nav-colors" onclick="window.navigateToView('colors')">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                <span>Өнгийн зөвлөгөө</span>
+            </button>
+            <button class="nav-item" id="nav-recent" onclick="window.navigateToView('recent')">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <span>Өмнөх шинжилгээ</span>
+            </button>
+            <button class="nav-item" id="nav-about" onclick="window.navigateToView('about')">
+                <svg viewBox="0 0 24 24"><path d="M12.22 2h-.44a2 2 0 00-2 2v.18a2 2 0 01-1 1.73l-.43.25a2 2 0 01-2 0l-.15-.08a2 2 0 00-2.73.73l-.22.38a2 2 0 00.73 2.73l.15.1a2 2 0 011 1.72v.51a2 2 0 01-1 1.74l-.15.09a2 2 0 00-.73 2.73l.22.38a2 2 0 002.73.73l.15-.08a2 2 0 012 0l.43.25a2 2 0 011 1.73V20a2 2 0 002 2h.44a2 2 0 002-2v-.18a2 2 0 011-1.73l.43-.25a2 2 0 012 0l.15.08a2 2 0 002.73-.73l.22-.39a2 2 0 00-.73-2.73l-.15-.08a2 2 0 01-1-1.74v-.5a2 2 0 011-1.74l.15-.09a2 2 0 00.73-2.73l-.22-.38a2 2 0 00-2.73-.73l-.15.08a2 2 0 01-2 0l-.43-.25a2 2 0 01-1-1.73V4a2 2 0 00-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+                <span>Тохиргоо</span>
+            </button>
+        </nav>
+
+        <!-- Premium upgrade card -->
+        <div class="premium-upgrade-card">
+            <div class="premium-header">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                    <path d="M6 3L2 9l10 12L22 9l-4-6H6z" fill="white"/>
+                </svg>
+                <span>Premium</span>
+            </div>
+            <p class="premium-title">Premium дээрш upgrade хийгэрэй</p>
+            <ul class="premium-features">
+                <li>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    Хязгааргүй шинжилгээ
+                </li>
+                <li>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    Нарийвчилсан зөвлөмж
+                </li>
+                <li>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    Хувцас тааруулалт
+                </li>
+                <li>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    AR туршилт
+                </li>
+            </ul>
+            <button class="premium-btn">Upgrade хийх</button>
+        </div>
+
+    </aside>
+
+    <!-- ══════════════ MAIN CONTENT ══════════════ -->
+    <main class="main-content">
+
+        <!-- ▸ НҮҮР ХУУДАС ◂ -->
+        <div class="view active" id="view-dashboard">
+
+            <!-- Hero landing section -->
+            <div id="dash-no-results">
+                <div class="hero-section">
+                    <div class="hero-left">
+                        <div class="hero-step-badge">01</div>
+                        <h1 class="hero-title">
+                            AI ашиглан<br>
+                            <span class="hero-title-accent">өөрийн өнгийг</span><br>
+                            тодорхойл
+                        </h1>
+                        <p class="hero-subtitle">
+                            Арьсны өнгө, үсний өнгө, нүдний өнгөнд<br>
+                            тулгуурлан танд хамгийн тохирох өнгийг олж өгнө.
+                        </p>
+                        <button class="hero-cta" onclick="window.navigateToView('analyze')">Эхлэх →</button>
+                        <div class="hero-social-proof">
+                            <div class="hero-avatars">
+                                <div class="hero-avatar ha1"></div>
+                                <div class="hero-avatar ha2"></div>
+                                <div class="hero-avatar ha3"></div>
+                            </div>
+                            <span>10,000+ хэрэглэгчид итгэж байна</span>
+                        </div>
+                    </div>
+                    <div class="hero-right">
+                        <div class="hero-circle-bg"></div>
+                        <div class="hero-circle-sm"></div>
+                        <div class="hero-model-wrap">
+                            <img src="/static/images/hero-model.jpg" alt="" class="hero-model-img">
+                            <div class="hero-model-badge">
+                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.2" stroke-linecap="round"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+                                AI шинжилгээ
+                            </div>
+                        </div>
+                        <div class="hero-palette-card">
+                            <div class="hero-palette-sq" style="background:#C9956B;"></div>
+                            <div class="hero-palette-sq" style="background:#A86B4A;"></div>
+                            <div class="hero-palette-sq" style="background:#7B8C6A;"></div>
+                            <div class="hero-palette-sq" style="background:#C4A882;"></div>
+                            <div class="hero-palette-sq" style="background:#566B3A;"></div>
+                            <div class="hero-palette-sq" style="background:#D4B896;"></div>
+                            <div class="hero-palette-sq" style="background:#8B3A2A;"></div>
+                            <div class="hero-palette-sq" style="background:#C46D3E;"></div>
+                            <div class="hero-palette-sq" style="background:#E8C49C;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results state -->
+            <div id="dash-results" style="display:none;">
+
+                <!-- ── Step 04: Season + Colors + Photo + Undertone ── -->
+                <div class="res-page-header">
+                    <div class="res-step-badge">04</div>
+                    <h1 class="res-page-title">Таны өнгөний төрөл</h1>
+                    <button class="res-new-btn" onclick="window.startNewAnalysis()">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 102.13-9.36L1 10"/></svg>
+                        Шинэ шинжилгээ
+                    </button>
+                </div>
+                <div class="res-layout">
+                    <div class="res-left">
+                        <div class="res-season-card">
+                            <span class="res-season-emoji" id="dashSeasonEmoji">🍂</span>
+                            <span class="res-season-name" id="dashSeason">—</span>
+                            <div class="res-season-tags" id="dashSeasonTags"></div>
+                        </div>
+                        <div class="res-color-grids">
+                            <div class="res-color-grid-col">
+                                <p class="res-grid-label">Тохирох өнгөнүүд</p>
+                                <div class="res-color-grid" id="dashBestColorGrid"></div>
+                            </div>
+                            <div class="res-color-grid-col">
+                                <p class="res-grid-label">Зайлсхийх өнгөнүүд</p>
+                                <div class="res-color-grid" id="dashAvoidColorGrid"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="res-right">
+                        <div class="res-photo-card">
+                            <img id="dashPhoto" src="" alt="" style="display:none; width:100%; height:100%; object-fit:cover; border-radius:18px;">
+                            <div class="res-photo-placeholder" id="dashPhotoPlaceholder">
+                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(123,110,246,0.4)" stroke-width="1.2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+                            </div>
+                        </div>
+                        <div class="res-undertone-card">
+                            <p class="ruc-label">Undertone</p>
+                            <p class="ruc-value" id="dashUndertoneDisplay">—</p>
+                            <div class="ruc-slider-wrap">
+                                <div class="ruc-track"><div class="ruc-thumb" id="dashUndertoneThumb"></div></div>
+                                <div class="ruc-labels"><span>Cool</span><span>Neutral</span><span>Warm</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ── Style tabs ── -->
+                <div class="style-section-wrap">
+                    <div class="style-tabs-row">
+                        <button class="style-tab-new active" onclick="window.switchStyleTab(this,'all')">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+                            Таны стиль зөвлөмж
+                        </button>
+                        <button class="style-tab-new" onclick="window.switchStyleTab(this,'makeup')">💄 Makeup</button>
+                        <button class="style-tab-new" onclick="window.switchStyleTab(this,'jewelry')">💍 Jewelry</button>
+                        <button class="style-tab-new" onclick="window.switchStyleTab(this,'background')">🌿 Background</button>
+                        <button class="style-tab-new" onclick="window.switchStyleTab(this,'avoid')">
+                            <span style="color:#E53935;font-weight:700;">✕</span> Avoid Colors
+                        </button>
+                    </div>
+
+                    <!-- ── 4 Style Cards ── -->
+                    <div class="style-cards-grid">
+
+                        <!-- Makeup -->
+                        <div class="sc-card" data-tab="makeup">
+                            <div class="sc-header">
+                                <div class="sc-icon-wrap sc-makeup-icon">💄</div>
+                                <h3 class="sc-title sc-pink">Makeup</h3>
+                            </div>
+                            <p class="sc-sub">Танд тохирох будалтын өнге</p>
+                            <div class="sc-makeup-rows">
+                                <div class="sc-makeup-row">
+                                    <span class="sc-label">Нүдний тень</span>
+                                    <div class="sc-dots" id="dashMakeupEye"></div>
+                                </div>
+                                <div class="sc-makeup-row">
+                                    <span class="sc-label">Хацар өнге</span>
+                                    <div class="sc-dots" id="dashMakeupBlush"></div>
+                                </div>
+                                <div class="sc-makeup-row">
+                                    <span class="sc-label">Уруулын будаг</span>
+                                    <div class="sc-lip-row" id="dashMakeupLip"></div>
+                                </div>
+                                <div class="sc-makeup-row">
+                                    <span class="sc-label">Хайлайтер</span>
+                                    <div class="sc-dots" id="dashMakeupHighlight"></div>
+                                </div>
+                            </div>
+                            <button class="sc-link" onclick="window.navigateToView('outfits')">Дэлгэрэнгүй харах →</button>
+                        </div>
+
+                        <!-- Jewelry -->
+                        <div class="sc-card" data-tab="jewelry">
+                            <div class="sc-header">
+                                <div class="sc-icon-wrap sc-jewelry-icon">💍</div>
+                                <h3 class="sc-title sc-gold">Jewelry</h3>
+                            </div>
+                            <p class="sc-sub">Танд тохирох металлын өнге</p>
+                            <div class="sc-jewelry-best">
+                                <span class="sc-best-badge">Best Match</span>
+                                <p class="sc-metal-name" id="dashJewelryBest">Алтан өнге (Gold)</p>
+                                <div class="sc-jewelry-art gold-art">
+                                    <svg viewBox="0 0 110 80" fill="none" stroke="#C9960A" stroke-width="1.8">
+                                        <ellipse cx="22" cy="20" rx="8" ry="8"/><line x1="22" y1="28" x2="22" y2="36"/>
+                                        <ellipse cx="22" cy="54" rx="12" ry="18"/>
+                                        <path d="M52 10 Q65 30 78 10"/><circle cx="65" cy="42" r="10"/>
+                                        <line x1="65" y1="10" x2="65" y2="32"/>
+                                        <ellipse cx="98" cy="35" rx="10" ry="6"/><rect x="90" y="24" width="16" height="11" rx="4"/>
+                                    </svg>
+                                    <div class="sc-check-badge good">✓</div>
+                                </div>
+                            </div>
+                            <div class="sc-jewelry-alt">
+                                <p class="sc-label" style="margin-bottom:4px;">Мен тохирох</p>
+                                <p class="sc-metal-name-alt" id="dashJewelryAlt">Мөнгөлөг өнге (Silver)</p>
+                                <div class="sc-jewelry-art silver-art">
+                                    <svg viewBox="0 0 110 80" fill="none" stroke="#9999BB" stroke-width="1.8">
+                                        <ellipse cx="22" cy="20" rx="8" ry="8"/><line x1="22" y1="28" x2="22" y2="36"/>
+                                        <ellipse cx="22" cy="54" rx="12" ry="18"/>
+                                        <path d="M52 10 Q65 30 78 10"/><circle cx="65" cy="42" r="10"/>
+                                        <line x1="65" y1="10" x2="65" y2="32"/>
+                                        <ellipse cx="98" cy="35" rx="10" ry="6"/><rect x="90" y="24" width="16" height="11" rx="4"/>
+                                    </svg>
+                                    <div class="sc-check-badge neutral">○</div>
+                                </div>
+                            </div>
+                            <button class="sc-link" onclick="window.navigateToView('outfits')">Дэлгэрэнгүй харах →</button>
+                        </div>
+
+                        <!-- Background -->
+                        <div class="sc-card" data-tab="background">
+                            <div class="sc-header">
+                                <div class="sc-icon-wrap sc-bg-icon">🌿</div>
+                                <h3 class="sc-title sc-green">Background</h3>
+                            </div>
+                            <p class="sc-sub">Таныг илүү тод харагдуулах арын фон</p>
+                            <p class="sc-label">Тохирох фон өнге</p>
+                            <div class="sc-dots" id="dashBgBest"></div>
+                            <p class="sc-label" style="margin-top:10px;">Зайлсхийх фон өнге</p>
+                            <div class="sc-dots" id="dashBgAvoid"></div>
+                            <p class="sc-label" style="margin-top:12px;">Туршиж үзээрэй</p>
+                            <div class="sc-bg-compare">
+                                <div class="sc-bg-photo good-bg">
+                                    <img id="dashBgGoodPhoto" src="/static/images/hero-model.jpg" alt="">
+                                    <div class="sc-check-badge good">✓</div>
+                                </div>
+                                <div class="sc-bg-photo bad-bg">
+                                    <img id="dashBgBadPhoto" src="/static/images/hero-model.jpg" alt="">
+                                    <div class="sc-check-badge bad">✗</div>
+                                </div>
+                            </div>
+                            <button class="sc-link" onclick="window.navigateToView('colors')">Дэлгэрэнгүй харах →</button>
+                        </div>
+
+                        <!-- Avoid Colors -->
+                        <div class="sc-card" data-tab="avoid">
+                            <div class="sc-header">
+                                <div class="sc-icon-wrap sc-avoid-icon">
+                                    <span style="font-size:14px;font-weight:800;color:#E53935;">✕</span>
+                                </div>
+                                <h3 class="sc-title sc-red">Avoid Colors</h3>
+                            </div>
+                            <p class="sc-sub">Танд зохихгүй өнге</p>
+                            <div class="sc-avoid-grid" id="dashMiniAvoid"></div>
+                            <div class="sc-avoid-note">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E53935" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                                <span>Эдгэр өнге таны царайг цонхинг, буруу харагдуулах магадлалтай.</span>
+                            </div>
+                            <button class="sc-link" onclick="window.navigateToView('colors')">Дэлгэрэнгүй харах →</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ── Clothing & Style Section ── -->
+                <div class="clothing-style-section">
+                    <div class="css-header">
+                        <div>
+                            <h2 class="css-title">Хувцас ба стиль зөвлөмж</h2>
+                            <p class="css-sub">Таны өнгөний төрөлд тохирсон хувцас ба стиль</p>
+                        </div>
+                        <button class="css-see-all" onclick="window.navigateToView('outfits')">Бүгдийг харах →</button>
+                    </div>
+                    <div class="css-cols">
+                        <!-- Хувцасны өнге -->
+                        <div class="css-col">
+                            <h4 class="css-col-title">Хувцасны өнге</h4>
+                            <p class="sc-label">Тохирох өнге</p>
+                            <div class="css-color-dots" id="dashClothingBest"></div>
+                            <p class="sc-label" style="margin-top:8px;">Зайлсхийх өнге</p>
+                            <div class="css-color-dots" id="dashClothingAvoid"></div>
+                            <div class="css-model-photo">
+                                <img src="/static/images/hero-model.jpg" alt="">
+                            </div>
+                            <button class="sc-link" onclick="window.navigateToView('colors')">Бүгдийг харах →</button>
+                        </div>
+                        <!-- Үсний өнге -->
+                        <div class="css-col">
+                            <h4 class="css-col-title">Үсний өнге</h4>
+                            <p class="sc-label">Танд тохирох үсний өнге</p>
+                            <div class="css-hair-grid" id="dashHairSwatches"></div>
+                            <button class="sc-link" onclick="window.navigateToView('outfits')">Бүгдийг харах →</button>
+                        </div>
+                        <!-- Хувцасны стиль -->
+                        <div class="css-col">
+                            <h4 class="css-col-title">Хувцасны стиль</h4>
+                            <p class="sc-label">Танд тохирох хувцасны стиль</p>
+                            <div class="css-outfit-grid" id="dashOutfitStyles">
+                                <div class="css-outfit-item" style="background:linear-gradient(160deg,#D4B896,#A8845A);">
+                                    <div class="css-outfit-label">Casual</div>
+                                </div>
+                                <div class="css-outfit-item" style="background:linear-gradient(160deg,#8B7355,#5C4A2A);">
+                                    <div class="css-outfit-label">Офис</div>
+                                </div>
+                                <div class="css-outfit-item" style="background:linear-gradient(160deg,#7B8C5A,#4A5C2A);">
+                                    <div class="css-outfit-label">Гоёл</div>
+                                </div>
+                                <div class="css-outfit-item" style="background:linear-gradient(160deg,#C08050,#8B5530);">
+                                    <div class="css-outfit-label">Энгийн</div>
+                                </div>
+                            </div>
+                            <button class="sc-link" onclick="window.navigateToView('outfits')">Бүгдийг харах →</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hidden JS compat -->
+                <div style="display:none;">
+                    <span id="dashSeasonDesc"></span><span id="dashToneName"></span>
+                    <span id="dashFitz"></span><span id="dashUndertone"></span>
+                    <span id="dashConfScore"></span><div id="dashConfBar"></div>
+                    <div id="dashDetectedDots"></div><div id="dashRecommendDots"></div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ▸ ЗУРАГ ШИНЖЛЭХ ◂ -->
+        <div class="view" id="view-analyze">
+            <div class="page-header-row">
+                <div class="page-header" style="margin-bottom:0">
+                    <h1 class="page-title">Зургаа оруулна уу</h1>
+                    <p class="page-subtitle">AI таны өнгийг илүү нарийн мэдрэхэд туссан, сайн гарантаат зураг шаардлагатай.</p>
+                </div>
+                <button id="analyzeNewBtn" class="btn btn-secondary" style="display:none;margin-top:4px;" onclick="window.startNewAnalysis()">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 102.13-9.36L1 10"/></svg>
+                    <span>Шинэ шинжилгээ</span>
+                </button>
+            </div>
+
+            <div class="analyze-view-layout">
+                <!-- Tips card (shown on left in ColorMe design) -->
+                <div class="analyze-tips-card">
+                    <p class="tips-title">Зургийн зөвлөгөө</p>
+                    <div class="tip-item">
+                        <div class="tip-check">✓</div>
+                        <span>Байгалийн гарал зураг авна уу</span>
+                    </div>
+                    <div class="tip-item">
+                        <div class="tip-check">✓</div>
+                        <span>Нүүрний будаггүй байх (сонголтоор)</span>
+                    </div>
+                    <div class="tip-item">
+                        <div class="tip-check">✓</div>
+                        <span>Нүүр тод харагдах байх</span>
+                    </div>
+                    <div class="tip-item">
+                        <div class="tip-check">✓</div>
+                        <span>Камер руу харж, сайдруу зураг авна уу</span>
+                    </div>
+
+                    <div class="tip-section-divider"></div>
+                    <p class="tip-section-title">✨ Яагаад зураг оруулах вэ?</p>
+                    <p class="tip-why-desc">AI систем таны арьс, үс, нүдний өнгийг шинжлэн хамгийн тохирох өнгийн палитрыг тодорхойлно.</p>
+
+                    <button class="btn btn-primary analyze-start-btn" onclick="document.getElementById('fileInput').click()">Шинжилгээ хийх →</button>
+                </div>
+
+                <!-- Upload area (shown on right) -->
+                <div class="analyze-upload-card">
+                    <div class="upload-area" id="uploadArea">
+                        <div class="upload-methods">
+                            <div class="upload-card" id="fileUploadCard">
+                                <div class="upload-icon">
+                                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+                                        <polyline points="16 16 12 12 8 16"/><line x1="12" y1="12" x2="12" y2="21"/>
+                                        <path d="M20.39 18.39A5 5 0 0018 9h-1.26A8 8 0 103 16.3"/>
+                                    </svg>
+                                </div>
+                                <h3>Зураг чирж оруулна уу</h3>
+                                <p>эсвэл дарж сонго уу</p>
+                                <p class="upload-hint">JPG · PNG · WebP · Хамгийн ихдээ 10MB</p>
+                                <button class="btn btn-primary upload-btn">Зураг сонгох</button>
+                                <input type="file" id="fileInput" accept="image/jpeg,image/png,image/webp" hidden>
+                            </div>
+                            <div class="upload-divider"><span>эсвэл</span></div>
+                            <div class="upload-card camera-mini-card" id="cameraCard">
+                                <div class="upload-icon">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                                </div>
+                                <h3>Камер ашиглах</h3>
+                            </div>
+                        </div>
+                        <div class="preview-container" id="previewContainer" style="display:none;">
+                            <img id="previewImage" alt="Preview">
+                            <div class="preview-actions">
+                                <button class="btn btn-secondary" id="clearBtn">Зураг солих</button>
+                                <button class="btn btn-primary" id="analyzeBtn">Шинжлэх</button>
+                            </div>
+                        </div>
+                        <div class="camera-container" id="cameraContainer" style="display:none;">
+                            <video id="cameraVideo" autoplay playsinline></video>
+                            <canvas id="cameraCanvas" style="display:none;"></canvas>
+                            <div class="camera-actions">
+                                <button class="btn btn-secondary" id="closeCameraBtn">Болих</button>
+                                <button class="btn btn-primary" id="captureBtn">Зураг авах</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="loading-container" id="loadingContainer" style="display:none;">
+                        <div class="analysis-loading-screen">
+                            <div class="analysis-loading-bg-wave"></div>
+                            <div class="analysis-loading-inner">
+                                <div class="analysis-loading-left">
+                                    <div class="analysis-step-badge">03</div>
+                                    <h2 class="analysis-loading-title">Таны өнгийг<br>тодорхойлж байна...</h2>
+                                    <p class="analysis-loading-sub">AI таны арьсны undertone, contrast,<br>saturation-ийг анализ хийж байна.</p>
+                                    <div class="analysis-steps">
+                                        <div class="analysis-step-item" id="astep1">
+                                            <div class="ast-icon">
+                                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+                                            </div>
+                                            <span>Арьсны өнгийг шинжиж байна</span>
+                                        </div>
+                                        <div class="analysis-step-item" id="astep2">
+                                            <div class="ast-icon">
+                                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/></svg>
+                                            </div>
+                                            <span>Өнгөний харьцааг тооцож байна</span>
+                                        </div>
+                                        <div class="analysis-step-item" id="astep3">
+                                            <div class="ast-icon">
+                                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+                                            </div>
+                                            <span>Тохирох өнгөнүүдийг гаргаж байна</span>
+                                        </div>
+                                    </div>
+                                    <span id="loadingStep" style="display:none;"></span>
+                                </div>
+                                <div class="analysis-loading-right">
+                                    <div class="analysis-progress-ring-wrap">
+                                        <svg viewBox="0 0 240 240" width="240" height="240">
+                                            <defs>
+                                                <linearGradient id="aprGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+                                                    <stop offset="0%" stop-color="#E8906A"/>
+                                                    <stop offset="100%" stop-color="#7B6EF6"/>
+                                                </linearGradient>
+                                            </defs>
+                                            <circle cx="120" cy="120" r="100" fill="none" stroke="#EDE5FF" stroke-width="16"/>
+                                            <circle id="aprFill" cx="120" cy="120" r="100" fill="none"
+                                                stroke="url(#aprGrad)" stroke-width="16" stroke-linecap="round"
+                                                stroke-dasharray="628.32" stroke-dashoffset="628.32"
+                                                transform="rotate(-90 120 120)"/>
+                                        </svg>
+                                        <div class="apr-center">
+                                            <span class="apr-percent" id="aprPercent">0%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="analysis-loading-footer">Энэ нь ердөө 10-20 секунд болно ⏱</div>
+                        </div>
+                    </div>
+                    <div class="error-container" id="errorContainer" style="display:none;">
+                        <div class="error-icon">!</div>
+                        <h3 id="errorTitle">Шинжилгээ амжилтгүй болов</h3>
+                        <p id="errorMessage"></p>
+                        <button class="btn btn-primary" id="retryBtn">Дахин оролдох</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ▸ ШИНЖИЛГЭЭНИЙ ҮР ДҮН ◂ -->
+        <div class="view" id="view-results">
+            <div class="page-header-row">
+                <div class="page-header" style="margin-bottom:0">
+                    <h1 class="page-title">Шинжилгээний үр дүн</h1>
+                    <p class="page-subtitle">Таны арьсны нарийвчилсан шинжилгээ</p>
+                </div>
+                <button class="btn btn-secondary" style="margin-top:4px;" onclick="window.startNewAnalysis()">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 102.13-9.36L1 10"/></svg>
+                    <span>Шинэ шинжилгээ</span>
+                </button>
+            </div>
+
+            <div id="results" style="display:none;">
+                <div class="results-view-tabs">
+                    <button class="results-tab active" data-tab="tab-overview" onclick="window.switchResultTab(this)"><span>Ерөнхий</span></button>
+                    <button class="results-tab" data-tab="tab-skintone" onclick="window.switchResultTab(this)"><span>Арьсны өнгө</span></button>
+                    <button class="results-tab" data-tab="tab-undertone" onclick="window.switchResultTab(this)"><span>Дотоод өнгө</span></button>
+                    <button class="results-tab" data-tab="tab-season" onclick="window.switchResultTab(this)"><span>Өнгийн улирал</span></button>
+                </div>
+
+                <div id="tab-overview" class="results-tab-panel active">
+                    <div class="results-overview-grid">
+                        <div class="results-photo-col">
+                            <p class="photo-col-label">Таны зураг</p>
+                            <img id="overviewPhoto" src="" alt="" style="display:none;">
+                            <div class="dash-photo-placeholder" id="overviewPhotoPlaceholder">
+                                <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+                            </div>
+                        </div>
+                        <div class="results-detail-col">
+                            <div class="results-detail-card">
+                                <h4>Арьсны өнгө</h4>
+                                <div class="skin-tone-row">
+                                    <div class="skin-tone-swatch" id="overviewSkinSwatch"></div>
+                                    <div class="skin-tone-info">
+                                        <p class="skin-tone-label">Fitzpatrick хуваарь</p>
+                                        <p class="skin-tone-name" id="overviewFitz">—</p>
+                                    </div>
+                                </div>
+                                <div style="margin-top:10px;">
+                                    <div class="dash-analysis-row"><span class="dash-analysis-key">Өнгийн нэр</span><span class="dash-analysis-val" id="overviewToneName">—</span></div>
+                                    <div class="dash-analysis-row"><span class="dash-analysis-key">Дотоод өнгө</span><span class="dash-analysis-val" id="overviewUndertone">—</span></div>
+                                    <div class="dash-analysis-row"><span class="dash-analysis-key">ITA өнцөг</span><span class="dash-analysis-val" id="overviewIta">—</span></div>
+                                </div>
+                            </div>
+                            <div class="color-harmony-section">
+                                <h4>Өнгийн зохицол</h4>
+                                <p class="harmony-row-label">Шилдэг өнгүүд</p>
+                                <div class="harmony-dots" id="overviewBestDots"></div>
+                                <p class="harmony-row-label">Нэмэлт өнгүүд</p>
+                                <div class="harmony-dots" id="overviewExtraDots"></div>
+                                <p class="harmony-row-label">Зайлсхийх өнгүүд</p>
+                                <div class="harmony-dots" id="overviewAvoidDots"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tab-skintone" class="results-tab-panel">
+                    {% include 'partials/results/profile.html' %}
+                </div>
+
+                <div id="tab-undertone" class="results-tab-panel">
+                    <div class="result-card">
+                        <div class="card-header"><h3>Дотоод өнгө</h3></div>
+                        <div class="undertone-cards-row" id="undertoneCardsRow">
+                            <div class="undertone-card" id="utWarm">
+                                <div class="undertone-card-swatches">
+                                    <div class="ut-swatch" style="background:#F5C5A0;"></div>
+                                    <div class="ut-swatch" style="background:#E8A87C;"></div>
+                                    <div class="ut-swatch" style="background:#D4845A;"></div>
+                                </div>
+                                <div class="undertone-card-check">✓</div>
+                                <p class="undertone-card-label">Дулаан</p>
+                                <p class="undertone-card-desc">Алт, шар, ногоон шар өнгийн дотоод өнгөтэй</p>
+                            </div>
+                            <div class="undertone-card" id="utCool">
+                                <div class="undertone-card-swatches">
+                                    <div class="ut-swatch" style="background:#E8D0E0;"></div>
+                                    <div class="ut-swatch" style="background:#C8A8C0;"></div>
+                                    <div class="ut-swatch" style="background:#A88098;"></div>
+                                </div>
+                                <div class="undertone-card-check">✓</div>
+                                <p class="undertone-card-label">Сэрүүн</p>
+                                <p class="undertone-card-desc">Мөнгө, ягаан, цэнхэр өнгийн дотоод өнгөтэй</p>
+                            </div>
+                            <div class="undertone-card" id="utNeutral">
+                                <div class="undertone-card-swatches">
+                                    <div class="ut-swatch" style="background:#E8D8C8;"></div>
+                                    <div class="ut-swatch" style="background:#C8B8A8;"></div>
+                                    <div class="ut-swatch" style="background:#A89888;"></div>
+                                </div>
+                                <div class="undertone-card-check">✓</div>
+                                <p class="undertone-card-label">Нейтрал</p>
+                                <p class="undertone-card-desc">Дулаан болон сэрүүн өнгийн хооронд</p>
+                            </div>
+                        </div>
+                        <p style="margin-top:1rem;font-size:.875rem;color:var(--text-2);line-height:1.7;" id="undertoneDetailDesc"></p>
+                    </div>
+                </div>
+
+                <div id="tab-season" class="results-tab-panel">
+                    {% include 'partials/results/season.html' %}
+                </div>
+            </div>
+
+            <div id="results-empty" class="no-results-state" style="margin-top:24px;">
+                <div class="no-results-icon">
+                    <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                </div>
+                <p class="no-results-title">Шинжилгээ хийгдээгүй байна</p>
+                <p class="no-results-sub">Эхлээд зураг шинжлэнэ үү</p>
+                <button class="btn btn-primary" onclick="window.navigateToView('analyze')">Шинжилгээ эхлүүлэх</button>
+            </div>
+        </div>
+
+        <!-- ▸ ӨНГИЙН ЗӨВЛӨГӨӨ ◂ -->
+        <div class="view" id="view-colors">
+            <div class="page-header">
+                <h1 class="page-title">Өнгийн зөвлөгөө</h1>
+                <p class="page-subtitle">Таны дүр төрхтэй зохицох өнгийн санал</p>
+            </div>
+            <div id="colors-content" style="display:none;">
+                {% include 'partials/results/clothing.html' %}
+            </div>
+            <div id="colors-empty" class="no-results-state">
+                <div class="no-results-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+                <p class="no-results-title">Шинжилгээ хийгдээгүй байна</p>
+                <p class="no-results-sub">Эхлээд зураг шинжлэнэ үү</p>
+                <button class="btn btn-primary" onclick="window.navigateToView('analyze')">Шинжилгээ эхлүүлэх</button>
+            </div>
+        </div>
+
+        <!-- ▸ ЗАГВАРЫН ЗӨВЛӨГӨӨ ◂ -->
+        <div class="view" id="view-outfits">
+            <div class="page-header">
+                <h1 class="page-title">Загварын зөвлөгөө</h1>
+                <p class="page-subtitle">Гоо сайхан, хувцас хэрэглэлийн зөвлөмж</p>
+            </div>
+            <div id="outfits-content" style="display:none;">
+                {% include 'partials/results/makeup.html' %}
+                {% include 'partials/results/fabrics-jewelry.html' %}
+            </div>
+            <div id="outfits-empty" class="no-results-state">
+                <div class="no-results-icon"><svg viewBox="0 0 24 24"><path d="M20.38 3.46L16 2a4 4 0 01-8 0L3.62 3.46a2 2 0 00-1.34 2.23l.58 3.57a1 1 0 00.99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 002-2V10h2.15a1 1 0 00.99-.84l.58-3.57a2 2 0 00-1.34-2.23z"/></svg></div>
+                <p class="no-results-title">Шинжилгээ хийгдээгүй байна</p>
+                <p class="no-results-sub">Эхлээд зураг шинжлэнэ үү</p>
+                <button class="btn btn-primary" onclick="window.navigateToView('analyze')">Шинжилгээ эхлүүлэх</button>
+            </div>
+        </div>
+
+        <!-- ▸ ӨМНӨХ ШИНЖИЛГЭЭ ◂ -->
+        <div class="view" id="view-recent">
+            <div class="page-header">
+                <h1 class="page-title">Өмнөх шинжилгээ</h1>
+                <p class="page-subtitle">Өмнө хийсэн шинжилгээнүүд</p>
+            </div>
+            <div class="no-results-state">
+                <div class="no-results-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+                <p class="no-results-title">Өмнөх шинжилгээ алга</p>
+                <p class="no-results-sub">Шинжилгээний түүх энд хадгалагдах болно</p>
+            </div>
+        </div>
+
+        <!-- ▸ ТОХИРГОО / СИСТЕМИЙН ТУХАЙ ◂ -->
+        <div class="view" id="view-about">
+            <div class="page-header">
+                <h1 class="page-title">Системийн тухай</h1>
+                <p class="page-subtitle">ChromaSense AI — Хувийн өнгийн шинжилгээ</p>
+            </div>
+            <div id="about-system">
+                {% include 'partials/about.html' %}
+            </div>
+        </div>
+
+    </main>
+</div>
+
+<div class="copied-tooltip" id="copiedTooltip"></div>
+<script type="module" src="/static/js/main.js?v=39"></script>
+</body>
+</html>

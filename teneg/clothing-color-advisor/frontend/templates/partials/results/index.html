@@ -1,0 +1,19 @@
+<section id="results" class="results-section" style="display:none;">
+    <span class="results-eyebrow" data-i18n="results.eyebrow">Таны өнгийн шинжилгээ</span>
+    <h2 class="section-title results-title-editorial" data-i18n="results.title">Таны хувийн өнгө</h2>
+    <div class="results-divider"></div>
+
+    <div class="results-grid">
+        {% include 'partials/results/profile.html' %}
+        {% include 'partials/results/season.html' %}
+    </div>
+
+    {% include 'partials/results/clothing.html' %}
+    {% include 'partials/results/outfits.html' %}
+    {% include 'partials/results/makeup.html' %}
+    {% include 'partials/results/fabrics-jewelry.html' %}
+
+    <div class="results-footer">
+        <button class="btn btn-primary" id="newAnalysisBtn" data-i18n="btn.new">Шинэ шинжилгээ</button>
+    </div>
+</section>

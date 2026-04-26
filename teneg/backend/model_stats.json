@@ -1,0 +1,16 @@
+{
+  "test_accuracy": 0.9062,
+  "dataset_size": 8313,
+  "train_size": 19950,
+  "test_size": 1663,
+  "n_features": 42,
+  "n_classes": 12,
+  "model": "Ensemble (GradientBoosting + RandomForest)",
+  "feature_groups": {
+    "skin": 18,
+    "hair": 9,
+    "eye": 6,
+    "contrast": 9
+  },
+  "dataset_source": "UTKFace (Kaggle)"
+}

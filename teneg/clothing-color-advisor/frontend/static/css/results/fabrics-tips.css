@@ -1,0 +1,47 @@
+/* Fabric + Pattern texture cards, tag pills, tips list. */
+
+.tag-section { margin-bottom:1.1rem; }
+.tag-section h4 {
+    font-size:.76rem; font-weight:700; color:var(--text-2);
+    text-transform:uppercase; letter-spacing:.07em;
+    margin-bottom:.65rem;
+}
+.tag-grid {
+    display:grid;
+    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+    gap:.5rem;
+}
+
+.tag {
+    padding:.3rem .8rem;
+    background:var(--accent-lt); color:var(--accent);
+    border-radius:var(--radius-pill);
+    font-size:.76rem; font-weight:600;
+    border:1px solid var(--border-pink);
+    transition: transform var(--ease);
+}
+.tag:hover { transform:scale(1.04); }
+
+.texture-card {
+    max-width: 80px;
+    margin: 0 auto;
+}
+.texture-preview {
+    width: 100%;
+    aspect-ratio: 1;
+}
+.texture-name {
+    font-size: .55rem;
+}
+
+.tips-mini { margin-top:1rem; }
+.tips-mini h4 {
+    font-size:.76rem; font-weight:700; color:var(--text-2);
+    text-transform:uppercase; letter-spacing:.07em;
+    margin-bottom:.65rem;
+}
+.tips-list { padding-left:1.1rem; }
+.tips-list li {
+    font-size:.84rem; color:var(--text-2);
+    margin-bottom:.45rem; line-height:1.55;
+}

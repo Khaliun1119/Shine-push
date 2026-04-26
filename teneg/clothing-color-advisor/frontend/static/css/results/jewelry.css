@@ -1,0 +1,40 @@
+/* Jewelry metals row + type grid. */
+
+.jewelry-showcase { margin-top:1rem; }
+
+.jewelry-metals-row {
+    display:flex; flex-wrap:wrap; gap:.6rem;
+    margin-bottom:1.25rem;
+}
+.jewelry-metal-chip {
+    display:flex; align-items:center; gap:.55rem;
+    padding:.4rem .85rem;
+    background:#FFFFFF; border:1px solid #EDE8E3;
+    border-radius:var(--radius-pill);
+    transition: transform var(--ease), box-shadow var(--ease);
+}
+.jewelry-metal-chip:hover { transform:translateY(-2px); box-shadow:var(--shadow); }
+.jewelry-metal-dot { width:14px; height:14px; border-radius:50%; flex-shrink:0; }
+.jewelry-metal-name { font-size:.78rem; font-weight:600; color:var(--text-1); }
+
+.jewelry-type-grid {
+    display:grid; grid-template-columns: repeat(4, 1fr);
+    gap:.75rem;
+}
+.jewelry-type-item {
+    display:flex; flex-direction:column; align-items:center;
+    gap:.4rem; padding:.85rem .6rem;
+    background:#FAFAF9; border:1px solid #EDE8E3;
+    border-radius:var(--radius-lg);
+    transition: transform var(--ease), box-shadow var(--ease);
+    cursor:default;
+}
+.jewelry-type-item:hover { transform:translateY(-3px); box-shadow:var(--shadow); }
+.jewelry-type-icon {
+    width:72px; height:72px;
+    display:flex; align-items:center; justify-content:center;
+    filter: drop-shadow(0 3px 8px rgba(0,0,0,.15));
+}
+.jewelry-type-icon svg { width:100%; height:100%; }
+.jewelry-type-label { font-size:.68rem; font-weight:700; color:var(--text-1); text-align:center; letter-spacing:.04em; text-transform:uppercase; }
+.jewelry-metal-badge { font-size:.6rem; font-weight:600; text-align:center; opacity:.8; }

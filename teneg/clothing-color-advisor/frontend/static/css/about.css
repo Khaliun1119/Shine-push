@@ -1,0 +1,161 @@
+/* About / Diploma section — metrics, pipeline, feature bars, algorithm info, dataset, theory. */
+
+.about-section { padding:7rem 5rem; background:var(--bg); max-width:1280px; margin:0 auto; }
+.about-header { text-align:center; margin-bottom:4rem; }
+.about-eyebrow {
+    display:inline-block;
+    font-size:.65rem; font-weight:700;
+    text-transform:uppercase; letter-spacing:.16em;
+    color:var(--accent); background:var(--accent-lt);
+    border-radius:var(--radius-pill);
+    padding:.3rem .9rem; margin-bottom:.9rem;
+    border:1px solid var(--border-pink);
+}
+.about-subtitle {
+    font-size:.96rem; color:var(--text-2); line-height:1.75;
+    max-width:620px; margin:.75rem auto 0;
+}
+
+.about-metrics { display:flex; gap:1.25rem; margin-bottom:3rem; flex-wrap:wrap; justify-content:center; }
+.metric-card {
+    background:var(--bg-card); border:1px solid var(--border);
+    border-radius:var(--radius-xl); padding:1.85rem 1.5rem;
+    display:flex; flex-direction:column; align-items:center; gap:.55rem;
+    flex:1; min-width:140px; max-width:200px;
+    box-shadow:var(--shadow); text-align:center;
+    transition: transform var(--ease), box-shadow var(--ease);
+}
+.metric-card:hover { transform:translateY(-4px); box-shadow:var(--shadow-lg); }
+.accent-card {
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dk) 100%);
+    border-color:transparent;
+    color:#fff;
+}
+.metric-ring-wrap {
+    position:relative; width:80px; height:80px;
+    display:flex; align-items:center; justify-content:center;
+}
+.metric-ring { position:absolute; inset:0; }
+.accuracy-circle { transition: stroke-dashoffset 1.5s cubic-bezier(.4,0,.2,1); }
+.metric-ring-val {
+    position:relative; z-index:1;
+    font-size:1.15rem; font-weight:700; color:#fff;
+    font-family:var(--font-head);
+}
+.metric-big { font-size:2.1rem; font-weight:700; color:var(--text-1); font-family:var(--font-head); line-height:1; }
+.metric-label { font-size:.76rem; font-weight:600; color:var(--text-2); }
+.accent-card .metric-label { color:rgba(255,255,255,.85); }
+.metric-sub { font-size:.66rem; color:var(--text-3); }
+.accent-card .metric-sub { color:rgba(255,255,255,.65); }
+
+.about-block {
+    background:var(--bg-card); border:1px solid var(--border);
+    border-radius:var(--radius-xl); padding:2.2rem;
+    margin-bottom:1.5rem; box-shadow:var(--shadow);
+}
+.about-block-title {
+    font-family:var(--font-head); font-size:1.3rem; font-weight:600;
+    color:var(--text-1); margin-bottom:1.5rem;
+}
+.about-grid { display:grid; grid-template-columns: 1fr 1fr; gap:1.5rem; margin-bottom:1.5rem; }
+
+/* Pipeline flow */
+.pipeline-flow { display:flex; align-items:center; gap:.5rem; flex-wrap:wrap; justify-content:center; }
+.pipe-step {
+    display:flex; flex-direction:column; align-items:center; gap:.4rem;
+    padding:1rem .8rem;
+    background:var(--bg); border-radius:var(--radius-md);
+    border:1px solid var(--border);
+    min-width:100px; text-align:center;
+    transition: transform var(--ease);
+}
+.pipe-step:hover { transform:translateY(-2px); }
+.pipe-icon { width:44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center; }
+.pipe-icon svg { width:22px; height:22px; }
+.pipe-name { font-size:.76rem; font-weight:700; color:var(--text-1); }
+.pipe-desc { font-size:.63rem; color:var(--text-3); font-weight:500; }
+.pipe-arrow { font-size:1.3rem; color:var(--text-3); flex-shrink:0; padding:0 .15rem; }
+
+/* Feature bars */
+.feat-bars { display:flex; flex-direction:column; gap:1rem; }
+.feat-bar-label { display:flex; justify-content:space-between; font-size:.79rem; font-weight:600; color:var(--text-1); margin-bottom:.35rem; }
+.feat-bar-num { background:var(--accent-lt); color:var(--accent); border-radius:6px; padding:0 .4rem; font-size:.7rem; font-weight:700; }
+.feat-bar-track { height:7px; background:var(--bg); border-radius:99px; overflow:hidden; border:1px solid var(--border); }
+.feat-bar-fill { height:100%; border-radius:99px; transition: width 1.2s cubic-bezier(.4,0,.2,1); }
+.feat-bar-sub { font-size:.66rem; color:var(--text-3); margin-top:.25rem; }
+.feat-total-row {
+    display:flex; align-items:center; gap:.5rem;
+    margin-top:1.25rem; padding:.75rem 1rem;
+    background:var(--accent-lt); border-radius:var(--radius-sm);
+    font-size:.8rem; color:var(--text-2);
+}
+.feat-total-row strong { color:var(--accent); font-size:1rem; }
+.feat-formula { color:var(--text-3); font-family:monospace; font-size:.73rem; }
+
+/* Algorithm card */
+.algo-card {
+    border-radius:var(--radius-lg); padding:1.3rem;
+    background: linear-gradient(135deg, #6366F115, #A855F715);
+    border:1.5px solid #A855F730;
+    margin-bottom:1.25rem; position:relative;
+}
+.algo-badge {
+    position:absolute; top:.8rem; right:.8rem;
+    font-size:.6rem; font-weight:700; text-transform:uppercase;
+    background:var(--accent); color:#fff;
+    padding:.2rem .6rem; border-radius:var(--radius-pill);
+    letter-spacing:.06em;
+}
+.algo-name { font-family:var(--font-head); font-size:1.5rem; font-weight:700; color:var(--text-1); margin-bottom:.2rem; }
+.algo-sub { font-size:.76rem; color:var(--text-2); margin-bottom:.75rem; }
+.algo-chips { display:flex; flex-wrap:wrap; gap:.4rem; margin-bottom:.75rem; }
+.algo-chip {
+    font-size:.66rem; font-weight:600;
+    color:#6366F1; background:#6366F115;
+    border:1px solid #6366F130;
+    padding:.2rem .55rem; border-radius:var(--radius-pill);
+}
+.algo-acc-row { font-size:.8rem; color:var(--text-2); display:flex; gap:.4rem; }
+.algo-acc-val { color:var(--accent); font-size:1.1rem; font-weight:700; }
+
+.algo-compare-title { font-size:.7rem; font-weight:700; text-transform:uppercase; letter-spacing:.09em; color:var(--text-3); margin-bottom:.85rem; }
+.algo-compare-rows { display:flex; flex-direction:column; gap:.55rem; }
+.acr-row { display:flex; align-items:center; gap:.65rem; font-size:.76rem; }
+.acr-name { width:140px; color:var(--text-2); flex-shrink:0; font-weight:500; }
+.acr-bar-wrap { flex:1; height:7px; background:var(--bg); border-radius:99px; overflow:hidden; border:1px solid var(--border); }
+.acr-bar { height:100%; background:var(--border); border-radius:99px; transition: width 1.2s cubic-bezier(.4,0,.2,1); }
+.accent-bar { background:var(--accent) !important; }
+.acr-val { width:38px; text-align:right; font-weight:600; color:var(--text-1); font-size:.73rem; }
+.highlight-row .acr-name { color:var(--accent); font-weight:700; }
+.highlight-row .acr-val { color:var(--accent); }
+
+/* Dataset cards */
+.ds-card {
+    display:flex; gap:1rem; padding:1.25rem;
+    background:var(--bg); border-radius:var(--radius-md);
+    border:1px solid var(--border);
+    margin-bottom:1rem; align-items:flex-start;
+}
+.ds-icon { font-size:1.9rem; flex-shrink:0; line-height:1; margin-top:.2rem; }
+.ds-name { font-weight:700; font-size:.93rem; color:var(--text-1); }
+.ds-source { font-size:.7rem; color:var(--text-3); margin-bottom:.4rem; }
+.ds-desc { font-size:.77rem; color:var(--text-2); line-height:1.55; }
+.ds-stats-row { display:flex; gap:1rem; flex-wrap:wrap; }
+.ds-stat-box {
+    flex:1; min-width:80px;
+    background:var(--bg); border:1px solid var(--border);
+    border-radius:var(--radius-sm); padding:.85rem; text-align:center;
+}
+.ds-stat-num { font-family:var(--font-head); font-size:1.6rem; font-weight:700; color:var(--accent); line-height:1; }
+.ds-stat-label { font-size:.66rem; color:var(--text-3); margin-top:.2rem; }
+
+.theory-cards { display:grid; grid-template-columns: repeat(4, 1fr); gap:1rem; }
+.theory-card {
+    padding:1.25rem; background:var(--bg); border:1px solid var(--border);
+    border-radius:var(--radius-md);
+    transition: transform var(--ease);
+}
+.theory-card:hover { transform:translateY(-2px); }
+.theory-icon { font-size:1.35rem; font-weight:800; font-family:var(--font-head); margin-bottom:.4rem; }
+.theory-name { font-weight:700; font-size:.86rem; color:var(--text-1); margin-bottom:.4rem; }
+.theory-desc { font-size:.71rem; color:var(--text-2); line-height:1.55; }

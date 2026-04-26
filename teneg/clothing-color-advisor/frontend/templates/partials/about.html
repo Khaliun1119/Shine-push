@@ -1,0 +1,256 @@
+{# About / system info section #}
+<section id="about-system-inner">
+    <div>
+
+    <div class="about-metrics">
+        <div class="metric-card accent-card">
+            <div class="metric-ring-wrap">
+                <svg class="metric-ring" viewBox="0 0 80 80">
+                    <circle cx="40" cy="40" r="32" fill="none" stroke="rgba(255,255,255,.15)" stroke-width="7"/>
+                    <circle cx="40" cy="40" r="32" fill="none" stroke="#fff" stroke-width="7"
+                        stroke-dasharray="201" stroke-dashoffset="22"
+                        stroke-linecap="round" transform="rotate(-90 40 40)"
+                        class="accuracy-circle" id="accuracyCircle"/>
+                </svg>
+                <span class="metric-ring-val" id="metricAccuracy">89%</span>
+            </div>
+            <div class="metric-label" data-i18n="about.accuracy">Тестийн нарийвчлал</div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-big" id="metricDataset">4,967</div>
+            <div class="metric-label" data-i18n="about.dataset">Сургалтын зураг</div>
+            <div class="metric-sub">UTKFace Dataset</div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-big">42</div>
+            <div class="metric-label" data-i18n="about.features">Онцлог шинж</div>
+            <div class="metric-sub" data-i18n="about.features.sub">Арьс + Үс + Нүд + Тодосгол</div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-big">12</div>
+            <div class="metric-label" data-i18n="about.classes">Ангиллын тоо</div>
+            <div class="metric-sub" data-i18n="about.classes.sub">Улирлын өнгийн систем</div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-big">80/20</div>
+            <div class="metric-label" data-i18n="about.split">Сургалт / Тест</div>
+            <div class="metric-sub" data-i18n="about.split.sub">Хуваалтын харьцаа</div>
+        </div>
+    </div>
+
+    <div class="about-block">
+        <h3 class="about-block-title" data-i18n="about.pipeline">Системийн архитектур</h3>
+        <div class="pipeline-flow">
+            <div class="pipe-step">
+                <div class="pipe-icon" style="background:#EEF2FF;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#6366F1" stroke-width="1.8">
+                        <rect x="3" y="3" width="18" height="18" rx="3"/>
+                        <path d="M8 12l4-4 4 4M12 8v8"/>
+                    </svg>
+                </div>
+                <div class="pipe-name" data-i18n="pipe.input">Зураг оруулах</div>
+                <div class="pipe-desc" data-i18n="pipe.input.desc">JPEG/PNG/WebP</div>
+            </div>
+            <div class="pipe-arrow">→</div>
+            <div class="pipe-step">
+                <div class="pipe-icon" style="background:#FEF3C7;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="1.8">
+                        <circle cx="12" cy="12" r="9"/>
+                        <circle cx="9" cy="10" r="1.5" fill="#D97706"/>
+                        <circle cx="15" cy="10" r="1.5" fill="#D97706"/>
+                        <path d="M9 15 Q12 17.5 15 15"/>
+                    </svg>
+                </div>
+                <div class="pipe-name" data-i18n="pipe.detect">Царай илрүүлэх</div>
+                <div class="pipe-desc">MediaPipe 478pt</div>
+            </div>
+            <div class="pipe-arrow">→</div>
+            <div class="pipe-step">
+                <div class="pipe-icon" style="background:#ECFDF5;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="1.8">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                    </svg>
+                </div>
+                <div class="pipe-name" data-i18n="pipe.features">Онцлог гаргах</div>
+                <div class="pipe-desc">CIE LAB / HSV</div>
+            </div>
+            <div class="pipe-arrow">→</div>
+            <div class="pipe-step">
+                <div class="pipe-icon" style="background:#FDF4FF;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#A855F7" stroke-width="1.8">
+                        <rect x="2" y="9" width="6" height="6" rx="1"/>
+                        <rect x="9" y="4" width="6" height="6" rx="1"/>
+                        <rect x="9" y="14" width="6" height="6" rx="1"/>
+                        <rect x="16" y="9" width="6" height="6" rx="1"/>
+                        <path d="M8 12h1M15 12h1M12 10v4"/>
+                    </svg>
+                </div>
+                <div class="pipe-name" data-i18n="pipe.ml">ML Ансамбль</div>
+                <div class="pipe-desc">GB + RF</div>
+            </div>
+            <div class="pipe-arrow">→</div>
+            <div class="pipe-step">
+                <div class="pipe-icon" style="background:#FFF1F2;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#F43F5E" stroke-width="1.8">
+                        <circle cx="12" cy="12" r="4"/>
+                        <path d="M5.6 5.6l1.4 1.4M16.9 7l1.5-1.5M18.4 18.4l-1.4-1.4M7 16.9l-1.5 1.5"/>
+                        <circle cx="12" cy="12" r="9" stroke-dasharray="3 3"/>
+                    </svg>
+                </div>
+                <div class="pipe-name" data-i18n="pipe.output">Палитр гаргах</div>
+                <div class="pipe-desc" data-i18n="pipe.output.desc">12 улирал</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="about-grid">
+        <div class="about-block">
+            <h3 class="about-block-title" data-i18n="about.feat.title">42 Онцлог шинжийн бүлгүүд</h3>
+            <div class="feat-bars">
+                <div class="feat-bar-row">
+                    <div class="feat-bar-label">
+                        <span data-i18n="feat.skin">Арьсны өнгө</span>
+                        <span class="feat-bar-num">18</span>
+                    </div>
+                    <div class="feat-bar-track">
+                        <div class="feat-bar-fill" style="width:42.9%;background:#C4785A;"></div>
+                    </div>
+                    <div class="feat-bar-sub" data-i18n="feat.skin.sub">L*a*b*, ITA, RGB, HSV хэмжигдэхүүнүүд</div>
+                </div>
+                <div class="feat-bar-row">
+                    <div class="feat-bar-label">
+                        <span data-i18n="feat.hair">Үсний өнгө</span>
+                        <span class="feat-bar-num">9</span>
+                    </div>
+                    <div class="feat-bar-track">
+                        <div class="feat-bar-fill" style="width:21.4%;background:#78716C;"></div>
+                    </div>
+                    <div class="feat-bar-sub" data-i18n="feat.hair.sub">Tone, saturation, darkness шинжүүд</div>
+                </div>
+                <div class="feat-bar-row">
+                    <div class="feat-bar-label">
+                        <span data-i18n="feat.eye">Нүдний өнгө</span>
+                        <span class="feat-bar-num">6</span>
+                    </div>
+                    <div class="feat-bar-track">
+                        <div class="feat-bar-fill" style="width:14.3%;background:#6366F1;"></div>
+                    </div>
+                    <div class="feat-bar-sub" data-i18n="feat.eye.sub">Iris hue, saturation, lightness</div>
+                </div>
+                <div class="feat-bar-row">
+                    <div class="feat-bar-label">
+                        <span data-i18n="feat.contrast">Тодосгол</span>
+                        <span class="feat-bar-num">9</span>
+                    </div>
+                    <div class="feat-bar-track">
+                        <div class="feat-bar-fill" style="width:21.4%;background:#10B981;"></div>
+                    </div>
+                    <div class="feat-bar-sub" data-i18n="feat.contrast.sub">Арьс-үс-нүдний харьцаат ялгаа</div>
+                </div>
+            </div>
+            <div class="feat-total-row">
+                <span data-i18n="feat.total">Нийт онцлог:</span>
+                <strong>42</strong>
+                <span class="feat-formula">= 18 + 9 + 6 + 9</span>
+            </div>
+        </div>
+
+        <div class="about-block">
+            <h3 class="about-block-title" data-i18n="about.algo.title">ML Алгоритм</h3>
+            <div class="algo-card ensemble">
+                <div class="algo-badge" data-i18n="algo.used">Ашигласан</div>
+                <div class="algo-name">Ensemble</div>
+                <div class="algo-sub">GradientBoosting + RandomForest</div>
+                <div class="algo-chips">
+                    <span class="algo-chip">Soft Voting</span>
+                    <span class="algo-chip">42 features</span>
+                    <span class="algo-chip">12 classes</span>
+                </div>
+                <div class="algo-acc-row">
+                    <span data-i18n="algo.acc">Нарийвчлал:</span>
+                    <strong class="algo-acc-val" id="algoAccVal">89%</strong>
+                </div>
+            </div>
+            <div class="algo-compare">
+                <div class="algo-compare-title" data-i18n="algo.compare">Харьцуулалт</div>
+                <div class="algo-compare-rows" id="algoCompareRows">
+                    <div class="acr-row">
+                        <span class="acr-name">GradientBoosting</span>
+                        <div class="acr-bar-wrap"><div class="acr-bar" style="width:85%"></div></div>
+                        <span class="acr-val">~85%</span>
+                    </div>
+                    <div class="acr-row">
+                        <span class="acr-name">RandomForest</span>
+                        <div class="acr-bar-wrap"><div class="acr-bar" style="width:82%"></div></div>
+                        <span class="acr-val">~82%</span>
+                    </div>
+                    <div class="acr-row highlight-row">
+                        <span class="acr-name">Ensemble ✓</span>
+                        <div class="acr-bar-wrap"><div class="acr-bar accent-bar" style="width:89%"></div></div>
+                        <span class="acr-val" id="ensembleAccVal">89%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="about-block">
+        <h3 class="about-block-title" data-i18n="about.data.title">Сургалтын датасет</h3>
+        <div class="dataset-cards">
+            <div class="ds-card">
+                <div class="ds-icon">📊</div>
+                <div class="ds-info">
+                    <div class="ds-name">UTKFace Dataset</div>
+                    <div class="ds-source">Kaggle — Zhang et al., 2017</div>
+                    <div class="ds-desc" data-i18n="ds.desc">Нас, хүйс, угсаа гарвалаар тэмдэглэгдсэн нийт 20,000+ царайны зураг агуулдаг олон нийтийн датасет. Манай системд 4,967 зургийг ашигласан.</div>
+                </div>
+            </div>
+            <div class="ds-stats-row">
+                <div class="ds-stat-box">
+                    <div class="ds-stat-num" id="dsTrain">3,973</div>
+                    <div class="ds-stat-label" data-i18n="ds.train">Сургалтын зураг</div>
+                </div>
+                <div class="ds-stat-box">
+                    <div class="ds-stat-num" id="dsTest">994</div>
+                    <div class="ds-stat-label" data-i18n="ds.test">Тестийн зураг</div>
+                </div>
+                <div class="ds-stat-box">
+                    <div class="ds-stat-num">12</div>
+                    <div class="ds-stat-label" data-i18n="ds.classes">Ангилал</div>
+                </div>
+                <div class="ds-stat-box">
+                    <div class="ds-stat-num">42</div>
+                    <div class="ds-stat-label" data-i18n="ds.feats">Онцлог</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="about-block">
+        <h3 class="about-block-title" data-i18n="about.theory.title">Өнгийн шинжлэх ухааны суурь</h3>
+        <div class="theory-cards">
+            <div class="theory-card">
+                <div class="theory-icon" style="color:#C4785A;">L*a*b*</div>
+                <div class="theory-name">CIE LAB</div>
+                <div class="theory-desc" data-i18n="theory.lab">Хүний нүдний мэдрэхүйд суурилсан өнгийн орон зай. Арьсны өнгийг тодорхойлоход хамгийн найдвартай метрик.</div>
+            </div>
+            <div class="theory-card">
+                <div class="theory-icon" style="color:#6366F1;">ITA°</div>
+                <div class="theory-name">ITA Өнцөг</div>
+                <div class="theory-desc" data-i18n="theory.ita">Individual Typology Angle — Chardon et al. (1991). L* ба b* утгуудаас гарган авдаг арьсны меланин агуулгын хэмжүүр.</div>
+            </div>
+            <div class="theory-card">
+                <div class="theory-icon" style="color:#10B981;">I–VI</div>
+                <div class="theory-name">Fitzpatrick</div>
+                <div class="theory-desc" data-i18n="theory.fitz">Dermatologist Thomas Fitzpatrick (1975) арьсны 6 ангиллын хуваарь. Нарны хэт ягаан туяанд арьсны хариу үйлдлийг үнэлдэг.</div>
+            </div>
+            <div class="theory-card">
+                <div class="theory-icon" style="color:#A855F7;">12✦</div>
+                <div class="theory-name">12-Season</div>
+                <div class="theory-desc" data-i18n="theory.season">Suzanne Caygill (1980) болон Carole Jackson "Color Me Beautiful" (1980) бүтээлд суурилсан улирлын өнгийн шинжилгээний систем.</div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+</section>
